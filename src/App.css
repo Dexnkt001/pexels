@@ -1,38 +1,227 @@
-.App {
-  text-align: center;
+*{
+    font-family: Arial;
+    cursor: default;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+    margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.top_header{
+    z-index: 2;
+    background: url("https://i.pinimg.com/originals/cf/03/27/cf0327a6de88a9825de6095bf362932e.jpg");
+    background-size:cover;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.header_nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.top_header a{
+   display: flex;
+    height: 40px;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: 600;
+    cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.top_header a span{
+    margin-left: 1rem;
+}
+
+.top_header a img{
+    cursor: pointer;
+}
+
+.top_header a:hover span{
+    color: gray;
+}
+
+.main_navigation{
+    display: flex;
+    height: 40px;
+    align-items: center;
+}
+
+.main_navigation li{
+    list-style: none;
+    font-size: 17px;
+    font-weight: 400;
+    margin-right: 2rem;
+}
+
+.main_navigation li p{
+    cursor: pointer;
+}
+
+.main_navigation li p:hover{
+    opacity: 0.75;
+    cursor: pointer;
+}
+
+.main_navigation svg path{
+    margin: 0 auto;
+    fill: white;
+}
+
+.main_navigation li:last-child{
+    background-color: #05a081;
+    border-radius: 5px;
+}
+
+.main_navigation li:last-child:hover{
+    opacity: 0.75;
+}
+
+.main_navigation li:last-child p{
+    margin: 0;
+    padding: 0.5rem 2rem;
+}
+
+.header_search{
+    max-width: 650px;
+    width:100%;
+    margin:0 auto;
+    padding: 100px 0;
+    color: white;
+}
+
+.header_search h1{
+    cursor: text;
+}
+
+form{
+    display: flex;
+    width: 100%;
+    height: 60px;
+    box-shadow: 0 0 10px #1a1a1a;
+}
+
+form input{
+    width: 95%;
+    height: 100%;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    background-color: white;
+    color: #1a1a1a;
+    cursor: text;
+    border: none;
+    font-size: 17px;
+    font-weight: 300;
+    padding-left: 10px;
+}
+
+input[type=search]:focus{
+    outline: none;
+}
+
+input[type=text]::-ms-clear {  display: none; width : 0; height: 0; }
+input[type=text]::-ms-reveal {  display: none; width : 0; height: 0; }
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+.header_search h1{
+    letter-spacing: 1px;
+}
+
+form button{
+    border: none;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    background-color: white;
+    height: 100%;
+    cursor: pointer;
+}
+
+form button svg, form button svg path{
+    cursor: pointer;
+}
+
+.search_ideas{
+    display: flex;
+    font-weight: 300;
+}
+
+.search_ideas span{
+    vertical-align: center;
+    cursor: text;
+}
+
+.search_ideas ul{
+    display: flex;
+    padding-left: 0px;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.search_ideas ul li{
+    list-style: none;
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+.search_ideas ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    opacity: 0.5;
+    font-weight: 300;
+}
+
+.search_ideas ul li a:hover{
+    opacity: 1;
+}
+
+.navigation_ander_header{
+    display:block;
+    width: 100%;
+    height: 60px;
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+    background-color: white;
+}
+
+.navigation_ander_header ul{
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.navigation_ander_header ul li{
+    list-style: none;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.navigation_ander_header ul li:first-child{
+    color: dodgerblue;
+    border-bottom: 3px solid #0064f9;;
+}
+
+.navigation_ander_header ul li:first-child p {
+    color:dodgerblue;
+}
+
+.navigation_ander_header ul li:hover p{
+    color:dodgerblue;
+}
+
+.navigation_ander_header ul li p{
+    padding:0px 10px;
+    margin-top: 20px;
+    color:rgba(0,0,0,0.5);
+    cursor: pointer;
 }
