@@ -1,13 +1,17 @@
 import React from 'react';
 import MainNavigation from "./MainNavigation";
-// @ts-ignore
-import icon from '../icons/pngwing.com.png';
 import HeaderSearch from "./HeaderSearch";
+import icon from '../icons/pngwing.com.png';
+import {useTypedSelector} from "../useTypedSelector";
+
 
 
 const Header:React.FC = () => {
+
+    const gallery = useTypedSelector(state=> state.gallery)
+
     return (
-        <header className="top_header">
+        <header style={{ backgroundImage: `url(${gallery.background})`}} className="top_header">
             <div className='header_nav'>
                 <a href="../../public/index.html">
                     <img src={icon} alt="pexels_icon"/>
@@ -16,6 +20,9 @@ const Header:React.FC = () => {
                 <MainNavigation />
             </div>
             <HeaderSearch />
+            <div className='flex_photographerBack'>
+                <a className='photographerBack' href={gallery.linkPhotographerBack}>Фотограф : {gallery.namePhotographerBack}</a>
+            </div>
         </header>
     );
 };

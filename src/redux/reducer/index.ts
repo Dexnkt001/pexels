@@ -3,7 +3,7 @@ import {galleryReducer} from "./galleryReducer";
 
 
 export const rootReducer = combineReducers({
-    gallry:galleryReducer,
+    gallery:galleryReducer,
 })
 
 export type rootState = ReturnType<typeof rootReducer>
