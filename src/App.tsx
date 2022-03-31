@@ -9,7 +9,7 @@ import Gallery from "./components/Gallery";
 import Loading from "./components/Loading";
 
 const App:React.FC = () => {
-    const state = useTypedSelector(state=>state.gallery)
+    const state = useTypedSelector(state=>state)
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(AsyncPicturesCreator())
@@ -26,7 +26,7 @@ const App:React.FC = () => {
     // });
 
     const loading = () =>{
-        if(state.loading){
+        if(state.gallery.loading){
             return   <Loading />
         }else return
     }

@@ -2,6 +2,8 @@ import {put, takeEvery, call} from "redux-saga/effects";
 import {PicturesActionTypes} from "../types/pictures";
 import {FetchMorePicturesSuccessAction, FetchPicturesSuccessAction} from "../redux/actions/gallery_actions";
 import {select} from "typed-redux-saga";
+import {fetchBackground} from "../redux/actions/background_actions";
+import {Action} from "redux";
 // import { call, all } from "typed-redux-saga"
 
 const api_key:string = process.env.REACT_APP_API_KEY  as string;
@@ -42,11 +44,13 @@ total_results:number;
     next_page:string;
 }
 
+
 function* getPicturesWorker(){
         const data:picts= yield call(getPicturesAction, api_key)
     const randomValue = Math.floor(Math.random() * data.photos.length)
     const [back, namePhotographerBack, linkPhotographerBack] = [data.photos[randomValue].src.landscape, data.photos[randomValue].photographer,data.photos[randomValue].photographer_url]
-        yield put(FetchPicturesSuccessAction({count_pict:40, pictures:data.photos, back:back, namePhotographerBack:namePhotographerBack, linkPhotographerBack:linkPhotographerBack}))
+        yield put(FetchPicturesSuccessAction({count_pict:40, pictures:data.photos}))
+        yield put(fetchBackground( {background:back, namePhotographerBack:namePhotographerBack, linkPhotographerBack:linkPhotographerBack,}))
 }
 
 function* getMorePicturesWorker(){

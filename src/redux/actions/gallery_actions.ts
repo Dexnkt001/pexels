@@ -3,9 +3,6 @@ import {PictureAction, PicturesActionTypes} from "../../types/pictures";
 export interface payloadFetch{
     count_pict:number;
     pictures:any[];
-    back:string;
-    namePhotographerBack:string;
-    linkPhotographerBack:string
 }
 
 export interface payloadFetchMore{

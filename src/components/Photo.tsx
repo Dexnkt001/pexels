@@ -6,6 +6,7 @@ import React, {ReactChild, ReactChildren} from 'react';
 import {useTypedSelector} from "../useTypedSelector";
 import {useDispatch} from "react-redux";
 import {LikePhoto} from "../redux/reducer/galleryReducer";
+import {AddLikePhoto, DeleteLikePhoto} from "../redux/reducer/likedIdReducer";
 
 
 interface Photos{
@@ -14,7 +15,7 @@ interface Photos{
     like:boolean;
     alt:string;
     urlPhotographer:string;
-    numberPhoto:number;
+    idPhoto:number;
     children?:ReactChild| React.ReactNode
 }
 
@@ -32,35 +33,48 @@ interface photoElement{
     width: number
 }
 
- const Photo:React.FC<Photos> = ({numberPhoto, mainPhoto, namePhotographer, like, alt,urlPhotographer}) => {
+ const Photo:React.FC<Photos> = ({idPhoto, mainPhoto, namePhotographer, like, alt,urlPhotographer}) => {
 
-     const state = useTypedSelector(state=>state.gallery)
+     const state = useTypedSelector(state=>{
+             return {
+                 gallery:state.gallery,
+                 likes: state.likes
+             }
+         }
+         )
      const dispatch = useDispatch();
 
-     const liked = (id:number) =>{
-         const arr =  state.pictures.map((element:photoElement, index)=>{
-             if(index === id){
-                 element.liked = !element.liked
-                 return element
-             }else return element
+
+
+     const deleteLiked = (id:number) =>{
+         const arrId =  state.likes.likedId.filter((element:number)=>{
+           return element !== id
          })
-         return arr
+         return DeleteLikePhoto(arrId)
      }
 
+
      const likeFun = (key:number) => {
-         {if(like)
+         {if(state.likes.likedId.some((element: any)=>element === key))
          {
-           return   <img onClick={()=>{dispatch(LikePhoto(liked(key)))}} className='icons_actions_photo liked' src={likeIcon} alt="" key={key}/>
+           return   <img onClick={()=>{dispatch(deleteLiked(key))}} className='icons_actions_photo liked' style={{background:'rgba(255,255,255,1)'}} src={likeIcon} alt="" key={key}/>
          }else{
-         return     <img onClick={()=>{dispatch(LikePhoto(liked(key)))}} className='icons_actions_photo' src={likeIcon} alt="" key={key}/>
+         return     <img onClick={()=>{
+             console.log('add id : ', key)
+             dispatch(AddLikePhoto(key))}} className='icons_actions_photo' src={likeIcon} alt="" key={key}/>
          }}
      }
 
-     const saveUrlAsFile = (fileName:string)=>{
+     const saveUrlAsFile = async (href:string, fileName:string)=>{
+         const res = await fetch(href);
+         const data = await res.blob();
+         const photo = URL.createObjectURL(data);
          const link = document.createElement("a");
-         link.setAttribute("href", '#');
-         link.setAttribute("download", fileName);
+         link.setAttribute("href", photo);
+         link.setAttribute("download", `${fileName}.jpg`);
+         console.log(photo)
          link.click();
+         URL.revokeObjectURL(photo);
      }
 
      return (
@@ -72,9 +86,9 @@ interface photoElement{
                      <span className='name_photographer'>{namePhotographer}</span>
                  </a>
                  <div className='action_photo'>
-                    <img onClick={()=>{saveUrlAsFile(`${mainPhoto}.jpg`)}} className='icons_actions_photo' src={load} alt="lol"/>
+                    <img onClick={()=>{saveUrlAsFile(mainPhoto,alt)}} className='icons_actions_photo' src={load} alt="lol"/>
                      <img className='icons_actions_photo' src={add} alt="lol"/>
-                     {likeFun(numberPhoto)}
+                     {likeFun(idPhoto)}
                  </div>
              </div>
          </div>

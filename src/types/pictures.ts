@@ -1,11 +1,8 @@
 export interface PictereState {
     pictures:any[];
     count_pict:number;
-    background:string;
     loading : boolean;
     error : null | string;
-    namePhotographerBack:string;
-    linkPhotographerBack:string;
 }
 
 export enum PicturesActionTypes{
@@ -34,10 +31,7 @@ interface FetchPicturesSuccessAction{
     type: PicturesActionTypes.FETCH_PICTURES_SUCCESS;
     payload:{
         pictures:any[],
-        back:string,
         count_pict:number,
-        namePhotographerBack:string,
-        linkPhotographerBack:string
     }
 }
 
