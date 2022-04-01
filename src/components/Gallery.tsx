@@ -1,10 +1,12 @@
- import React, {useEffect, useLayoutEffect, useRef} from 'react';
+ import React, {ReactNode, useEffect, useRef} from 'react';
  import {useTypedSelector} from "../useTypedSelector";
  import Photo from "./Photo";
  import {useDispatch} from "react-redux";
  import {AsyncMorePicturesCreator, fetchPicturesCreator} from "../redux/reducer/galleryReducer";
 
- const Gallery:React.FC = () => {
+
+
+ const Gallery = () => {
 
      const dispatch = useDispatch();
 

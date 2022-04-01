@@ -7,6 +7,9 @@ import {AsyncMorePicturesCreator, AsyncPicturesCreator} from "./redux/reducer/ga
 import Navigation from "./components/Navigation";
 import Gallery from "./components/Gallery";
 import Loading from "./components/Loading";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
+import Main from "./pages/Main";
+import Category from "./pages/Category";
 
 const App:React.FC = () => {
     const state = useTypedSelector(state=>state)
@@ -25,19 +28,16 @@ const App:React.FC = () => {
     //     }
     // });
 
-    const loading = () =>{
-        if(state.gallery.loading){
-            return   <Loading />
-        }else return
-    }
 
   return (
-    <div className="App">
-        {loading()}
-       <Header />
-        <Navigation />
-        <Gallery />
-    </div>
+      <BrowserRouter>
+          <div className="App">
+              <Routes>
+                  <Route path="/" element={<Main />} />
+                  <Route path="/about" element={<Category />} />
+              </Routes>
+          </div>
+      </BrowserRouter>
   );
 }
 

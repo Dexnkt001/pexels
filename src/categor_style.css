@@ -1,0 +1,148 @@
+.category_functions{
+    display: block;
+    width: 100%;
+    margin-top: 60px;
+}
+
+.functions{
+display: flex;
+    width: 100%;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 14px;
+}
+
+.functions ul:last-child{
+    display: flex;
+    width: 20%;
+    height: 40px;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.functions ul:last-child li{
+    border-radius: 20px;
+}
+
+.functions ul:first-child{
+    display: flex;
+    width: 30%;
+    height: 40px;
+    list-style: none;
+    border-radius: 20px;
+}
+
+.functions ul li{
+  display: flex;
+    align-items: center;
+    border:1px solid rgba(0,0,0,0.2);
+    color:#5e5e5e;
+    fill:#5e5e5e;
+    transition: all ease 0.1s;
+}
+
+.functions ul:first-child li:first-child{
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.functions ul:first-child li:nth-child(2){
+    border-right: none;
+    border-left:none;
+}
+
+.functions ul:first-child li:last-child{
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+
+.functions ul li:hover{
+    border:1px solid rgba(0,0,0,0);
+    cursor: pointer;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.functions ul li:hover span, svg,path{
+    cursor: pointer;
+}
+
+.functions ul li svg{
+    margin-left: 5px;
+}
+
+.functions ul li span{
+    margin: 0 10px;
+}
+
+.functions ul:first-child{
+    margin-left: 20px;
+}
+
+.functions ul:last-child{
+    margin-right: 20px;
+}
+
+.rd__svg-icon{
+    width: 18px;
+    height: 17px;
+}
+
+.rd__svg-icon svg{
+    width: 18px;
+    height: 17px;
+}
+
+.category_title{
+    text-align: center;
+}
+
+.flex_categories{
+    display: flex;
+    min-height: 40px;
+    overflow-x: auto;
+    padding: 20px;
+}
+
+.flex_categories::-webkit-scrollbar {
+    display: none;
+}
+
+.flex_categories_item{
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    border-radius: 20px;
+    box-shadow: 0 3px 3px 0 #5e5e5e;
+    cursor: pointer;
+}
+
+.flex_categories_item:hover{
+    background-color: rgba(0,0,0,0.1);
+}
+
+
+.flex_categories_item_content{
+    display: inline-flex;
+    padding: 5px 10px 5px 5px;
+    color:#5e5e5e;
+    font-weight: 700;
+    line-height: 16px;
+    font-size: 14px;
+    text-transform: capitalize;
+    white-space: nowrap;
+    align-items: center;
+    cursor: pointer;
+}
+
+.flex_categories_item_content div{
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    margin:0 5px;
+    cursor: pointer;
+}

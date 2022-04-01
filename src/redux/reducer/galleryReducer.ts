@@ -3,7 +3,7 @@ import {PictereState, PictureAction, PicturesActionTypes} from "../../types/pict
 
 const initialState:PictereState = {
   pictures:[],
-  count_pict:40,
+  count_pict:0,
   loading : false,
   error : null,
 }
@@ -31,17 +31,12 @@ export const galleryReducer = (state = initialState, action:PictureAction):Picte
       pictures:[...state.pictures, ...action.payload.pictures],
       count_pict: action.payload.count_pict,
     }
-    case PicturesActionTypes.LIKE_PHOTO : return {loading:false,
-      error:null, pictures:action.payload,
-      count_pict: state.count_pict,
-    }
     default : return state
   }
 }
 
 
  export const fetchPicturesCreator = () => ({type:PicturesActionTypes.FETCH_PICTURES})
-export const LikePhoto = (payload:any[]) => ({type:PicturesActionTypes.LIKE_PHOTO, payload})
 // export const fetchPicturesSuccessCreator = () => ({type:PicturesActionTypes.FETCH_PICTURES_SUCCESS})
 // export const fetchPicturesErrorCreator = () => ({type:PicturesActionTypes.FETCH_PICTURES_ERROR})
 export const AsyncPicturesCreator = () => ({type:PicturesActionTypes.ASYNC_PICTURES})

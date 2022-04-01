@@ -51,16 +51,3 @@ const Header:React.FC = () => {
 };
 
 export default Header;
-
-// import React from 'react';
-// import './App.css';
-//
-// function App() {
-//     return (
-//         <div className="App">
-//             <h1>Hallow World!!!</h1>
-//         </div>
-//     );
-// }
-//
-// export default App;

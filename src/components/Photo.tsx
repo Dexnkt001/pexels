@@ -5,7 +5,6 @@ import React, {ReactChild, ReactChildren} from 'react';
  import add from '../icons/add.png';
 import {useTypedSelector} from "../useTypedSelector";
 import {useDispatch} from "react-redux";
-import {LikePhoto} from "../redux/reducer/galleryReducer";
 import {AddLikePhoto, DeleteLikePhoto} from "../redux/reducer/likedIdReducer";
 
 

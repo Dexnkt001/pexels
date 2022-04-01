@@ -1,5 +1,5 @@
 *{
-    font-family: Arial;
+    font-family: -apple-system,BlinkMacSystemFont,segoe ui,roboto,oxygen,cantarell,helvetica neue,ubuntu,sans-serif;
     cursor: default;
 }
 
@@ -18,8 +18,19 @@ body{
     width: 100%;
     top:0;
     left:0;
-    background-color: #5e5e5e;
+    background-color: #232a34;
     z-index: 1000;
+}
+
+.fixed_header a{
+    display: flex;
+    height: 40px;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 19px;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 .fixed_left_header{
