@@ -17,6 +17,12 @@ export const FetchPicturesCategoryAction = () : PictureCategoryAction =>{
     }
 }
 
+export const ClearPicturesCategoryAction = () : PictureCategoryAction =>{
+    return{
+        type: PicturesCategoryActionTypes.FETCH_CATEGORY_PICTURES
+    }
+}
+
 export const FetchPicturesCategorySuccessAction = (payload:payloadCategoryFetch) => {
     return{
         type:PicturesCategoryActionTypes.FETCH_CATEGORY_PICTURES_SUCCESS,

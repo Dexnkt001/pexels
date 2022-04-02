@@ -5,6 +5,7 @@
 
 body{
     margin: 0;
+    position: relative;
 }
 
 .top_header{
@@ -305,7 +306,7 @@ width: 100%;
 
 .more_photo{
     position: absolute;
-    bottom: 3000px;
+    bottom: 20px;
 }
 
 .item_flex_container{

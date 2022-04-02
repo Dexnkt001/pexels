@@ -13,11 +13,16 @@ export enum PicturesCategoryActionTypes{
     ASYNC_CATEGORY_PICTURES = 'ASYNC_CATEGORY_PICTURES',
     FETCH_CATEGORY_MORE_PICTURES_SUCCESS = 'FETCH_CATEGORY_MORE_PICTURES_SUCCESS',
     ASYNC_CATEGORY_MORE_PICTURES = "ASYNC_CATEGORY_MORE_PICTURES",
-    NEW_CATEGORY ='NEW_CATEGORY_CATEGORY'
+    NEW_CATEGORY ='NEW_CATEGORY_CATEGORY',
+    CLEAR_PICTURES_CATEGORY='CLEAR_PICTURES_CATEGORY'
 }
 
 interface FetchPicturesCategoryAction{
     type:PicturesCategoryActionTypes.FETCH_CATEGORY_PICTURES;
+}
+
+interface ClearPicturesCategoryAction{
+    type:PicturesCategoryActionTypes.CLEAR_PICTURES_CATEGORY;
 }
 
 interface FetchMorePicturesCategorySuccess{
@@ -54,4 +59,4 @@ interface AsyncMorePicturesCategoryAction{
     type:PicturesCategoryActionTypes.ASYNC_CATEGORY_MORE_PICTURES
 }
 
-export type PictureCategoryAction = FetchPicturesCategoryAction | FetchPicturesCategorySuccessAction | FetchPicturesCategoryErrorAction | AsyncPicturesCategoryAction |  FetchMorePicturesCategorySuccess | AsyncMorePicturesCategoryAction | NewCategory
+export type PictureCategoryAction = FetchPicturesCategoryAction | FetchPicturesCategorySuccessAction | FetchPicturesCategoryErrorAction | AsyncPicturesCategoryAction |  FetchMorePicturesCategorySuccess | AsyncMorePicturesCategoryAction | NewCategory | ClearPicturesCategoryAction

@@ -1,6 +1,10 @@
 import React from 'react';
+import {useTypedSelector} from "../useTypedSelector";
 
 const CategoryFunctions:React.FC = () => {
+    const state = useTypedSelector(state=>state.category)
+
+
     return (
         <div className='category_functions'>
             <div className='functions'>
@@ -62,7 +66,7 @@ const CategoryFunctions:React.FC = () => {
                 </ul>
             </div>
             <h2 className='category_title'>
-                Заголовк выбранной категории
+                Фото {state.category} И Картинки {state.category}
             </h2>
             <div className='flex_categories'>
                 <div className='flex_categories_item'><div className='flex_categories_item_content'><div style={{backgroundImage: "url(https://images.pexels.com/photos/1209610/pexels-photo-1209610.jpeg?auto=compress&crop=entropy&cs=tinysrgb&dpr=2&fit=crop&h=50&w=50)"}}></div> Лето </div></div>

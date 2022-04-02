@@ -22,7 +22,7 @@ const SearchIdeas:React.FC = () => {
     return (
         <div className='search_ideas'>
             <span>
-                <p> Идеи для поиска:</p>
+                <p> Идеи дляоиска:</p>
                </span>
             <ul>
                 {sevenСategories.map((element, index) => {

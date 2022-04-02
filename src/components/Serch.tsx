@@ -1,9 +1,28 @@
 import React from 'react';
+import { NewCategoryCreator} from "../redux/reducer/categoryReducer";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 const Serch:React.FC = () => {
+
+
+    let navigate = useNavigate();
+
+    function lol(e:any){
+        e.preventDefault()
+        console.log('odin')
+        dispatch(NewCategoryCreator(e.target[0].value))
+       // dispatch(AsyncPicturesCategoryCreator())
+        navigate("../about")
+    }
+
+    const dispatch = useDispatch();
+
     return (
         <div>
-            <form action="">
+            <form onSubmit={(e)=>{
+                lol(e)
+            }} action="">
                 <input className='search_inp' type="search" placeholder='Ищите бесплатные фото и видео'/>
                 <button>
                     <svg width='24' height='24' viewBox='0 0 24 24'>

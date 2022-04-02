@@ -1,36 +1,17 @@
- import React, {ReactNode, useEffect, useRef} from 'react';
+ import React from 'react';
  import {useTypedSelector} from "../useTypedSelector";
  import Photo from "./Photo";
- import {useDispatch} from "react-redux";
- import {AsyncMorePicturesCreator, fetchPicturesCreator} from "../redux/reducer/galleryReducer";
 
 
 
- const Gallery = () => {
+ interface request{
+     req: 'gallery' | 'category'
+ }
 
-     const dispatch = useDispatch();
 
-     const gallery = useTypedSelector(state=> state.gallery)
+ const Gallery = ({req}:request) => {
 
-     // const markPhoto = useRef()
-     const markPhoto = useRef<HTMLDivElement>(null);
-
-     // useLayoutEffect(() => {
-     //     console.log(markPhoto);
-     // })
-
-     useEffect(()=>{
-         let observer = new IntersectionObserver((entries, observer)=>{
-             if(entries[0].isIntersecting){
-                 dispatch(fetchPicturesCreator())
-                 dispatch(AsyncMorePicturesCreator())
-             }
-         },{
-             threshold:0.8
-         });
-         observer.observe(markPhoto.current as unknown as Element)
-     }, [])
-
+     const gallery = useTypedSelector(state=> state[req])
 
 
      const firstcolumn = (start:number) => {
@@ -48,7 +29,7 @@
          <div className='main_content'>
              <h3>Бесплатные стоковые фото</h3>
              <div className='flex_container_for_photos'>
-                 <div ref={markPhoto}  className='more_photo'></div>
+                 {/*<div ref={markPhoto}  className='more_photo'></div>*/}
                  <div className='item_flex_container'>
                      {/*{gallery.pictures.}*/}
                      {firstcolumn(0)}
