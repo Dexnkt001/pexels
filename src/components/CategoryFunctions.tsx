@@ -1,5 +1,7 @@
 import React from 'react';
 import {useTypedSelector} from "../useTypedSelector";
+import Size from "./Size";
+import Orientation from "./Orientation";
 
 const CategoryFunctions:React.FC = () => {
     const state = useTypedSelector(state=>state.category)
@@ -8,7 +10,7 @@ const CategoryFunctions:React.FC = () => {
     return (
         <div className='category_functions'>
             <div className='functions'>
-              <ul>
+              <ul className='category_list'>
                   <li>
                       <i className='rd__svg-icon'>
                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -38,30 +40,41 @@ const CategoryFunctions:React.FC = () => {
                       <span>Пользователи</span>
                   </li>
               </ul>
-                <ul>
-                    <li>
-                        <i className='rd__svg-icon'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <path d="M16.48 2.52c3.27 1.55 5.61 4.72 5.97 8.48h1.5C23.44 4.84 18.29 0 12 0l-.66.03 3.81 3.81 1.33-1.32zm-6.25-.77c-.59-.59-1.54-.59-2.12 0L1.75 8.11c-.59.59-.59 1.54 0 2.12l12.02 12.02c.59.59 1.54.59 2.12 0l6.36-6.36c.59-.59.59-1.54 0-2.12L10.23 1.75zm4.6 19.44L2.81 9.17l6.36-6.36 12.02 12.02-6.36 6.36zm-7.31.29C4.25 19.94 1.91 16.76 1.55 13H.05C.56 19.16 5.71 24 12 24l.66-.03-3.81-3.81-1.33 1.32z"></path>
-                            </svg>
-                        </i>
-                        <span>Ориентация</span>
+                <ul className='function_list'>
+                    <li className='functions_categories orientation_activ'>
+                        <div className='func_buttun'>
+                            <i className='rd__svg-icon'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M16.48 2.52c3.27 1.55 5.61 4.72 5.97 8.48h1.5C23.44 4.84 18.29 0 12 0l-.66.03 3.81 3.81 1.33-1.32zm-6.25-.77c-.59-.59-1.54-.59-2.12 0L1.75 8.11c-.59.59-.59 1.54 0 2.12l12.02 12.02c.59.59 1.54.59 2.12 0l6.36-6.36c.59-.59.59-1.54 0-2.12L10.23 1.75zm4.6 19.44L2.81 9.17l6.36-6.36 12.02 12.02-6.36 6.36zm-7.31.29C4.25 19.94 1.91 16.76 1.55 13H.05C.56 19.16 5.71 24 12 24l.66-.03-3.81-3.81-1.33 1.32z"></path>
+                                </svg>
+                            </i>
+                            <span>Ориентация</span>
+                        </div>
+                        <Orientation />
+
+
+                    </li>
+                    <li className='functions_categories size_active'>
+                        <div className='func_buttun'>
+                            <i className='rd__svg-icon'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M20 4h-3.17L15 2H9L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 11.5V13H9v2.5L5.5 12 9 8.5V11h6V8.5l3.5 3.5-3.5 3.5z"></path>
+                                </svg>
+                            </i>
+                            <span>Размер</span>
+                        </div>
+                        <Size />
+
                     </li>
                     <li>
-                        <i className='rd__svg-icon'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <path d="M20 4h-3.17L15 2H9L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 11.5V13H9v2.5L5.5 12 9 8.5V11h6V8.5l3.5 3.5-3.5 3.5z"></path>
-                            </svg>
-                        </i>
-                        <span>Размер</span>
-                    </li>
-                    <li>
-                        <i className='rd__svg-icon'>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <path d="M20.71 5.63l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-3.12 3.12-1.93-1.91-1.41 1.41 1.42 1.42L3 16.25V21h4.75l8.92-8.92 1.42 1.42 1.41-1.41-1.92-1.92 3.12-3.12c.4-.4.4-1.03.01-1.42zM6.92 19L5 17.08l8.06-8.06 1.92 1.92L6.92 19z"></path>
-                            </svg>
-                        </i>
-                        <span>Цвет</span>
+                        <div>
+                            <i className='rd__svg-icon'>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M20.71 5.63l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-3.12 3.12-1.93-1.91-1.41 1.41 1.42 1.42L3 16.25V21h4.75l8.92-8.92 1.42 1.42 1.41-1.41-1.92-1.92 3.12-3.12c.4-.4.4-1.03.01-1.42zM6.92 19L5 17.08l8.06-8.06 1.92 1.92L6.92 19z"></path>
+                                </svg>
+                            </i>
+                            <span>Цвет</span>
+                        </div>
                     </li>
                 </ul>
             </div>
