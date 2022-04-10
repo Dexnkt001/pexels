@@ -2,8 +2,12 @@ import React from 'react';
 import {useTypedSelector} from "../useTypedSelector";
 import Size from "./Size";
 import Orientation from "./Orientation";
+import {useTranslation} from "react-i18next";
 
 const CategoryFunctions:React.FC = () => {
+
+    const { t } = useTranslation()
+
     const state = useTypedSelector(state=>state.category)
 
 
@@ -20,7 +24,7 @@ const CategoryFunctions:React.FC = () => {
                           </svg>
                       </i>
                       <span>
-                          Фотография
+                          {t("category_functions.photos")}
                       </span>
                   </li>
                   <li>
@@ -29,7 +33,7 @@ const CategoryFunctions:React.FC = () => {
                               <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"></path>
                           </svg>
                       </i>
-                      <span>Видео</span>
+                      <span>{t("category_functions.videos")}</span>
                   </li>
                   <li>
                       <i className='rd__svg-icon'>
@@ -37,7 +41,7 @@ const CategoryFunctions:React.FC = () => {
                               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"></path>
                           </svg>
                       </i>
-                      <span>Пользователи</span>
+                      <span>{t("category_functions.users")}</span>
                   </li>
               </ul>
                 <ul className='function_list'>
@@ -48,7 +52,7 @@ const CategoryFunctions:React.FC = () => {
                                     <path d="M16.48 2.52c3.27 1.55 5.61 4.72 5.97 8.48h1.5C23.44 4.84 18.29 0 12 0l-.66.03 3.81 3.81 1.33-1.32zm-6.25-.77c-.59-.59-1.54-.59-2.12 0L1.75 8.11c-.59.59-.59 1.54 0 2.12l12.02 12.02c.59.59 1.54.59 2.12 0l6.36-6.36c.59-.59.59-1.54 0-2.12L10.23 1.75zm4.6 19.44L2.81 9.17l6.36-6.36 12.02 12.02-6.36 6.36zm-7.31.29C4.25 19.94 1.91 16.76 1.55 13H.05C.56 19.16 5.71 24 12 24l.66-.03-3.81-3.81-1.33 1.32z"></path>
                                 </svg>
                             </i>
-                            <span>Ориентация</span>
+                            <span>{t("category_functions.all_orientation")}</span>
                         </div>
                         <Orientation />
 
@@ -61,7 +65,7 @@ const CategoryFunctions:React.FC = () => {
                                     <path d="M20 4h-3.17L15 2H9L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 11.5V13H9v2.5L5.5 12 9 8.5V11h6V8.5l3.5 3.5-3.5 3.5z"></path>
                                 </svg>
                             </i>
-                            <span>Размер</span>
+                            <span>{t("category_functions.all_size")}</span>
                         </div>
                         <Size />
 
@@ -73,13 +77,13 @@ const CategoryFunctions:React.FC = () => {
                                     <path d="M20.71 5.63l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-3.12 3.12-1.93-1.91-1.41 1.41 1.42 1.42L3 16.25V21h4.75l8.92-8.92 1.42 1.42 1.41-1.41-1.92-1.92 3.12-3.12c.4-.4.4-1.03.01-1.42zM6.92 19L5 17.08l8.06-8.06 1.92 1.92L6.92 19z"></path>
                                 </svg>
                             </i>
-                            <span>Цвет</span>
+                            <span>{t("category_functions.enter_hex_code")}</span>
                         </div>
                     </li>
                 </ul>
             </div>
             <h2 className='category_title'>
-                Фото {state.category} И Картинки {state.category}
+                Photo {state.category} And Pictures {state.category}
             </h2>
             <div className='flex_categories'>
                 <div className='flex_categories_item'><div className='flex_categories_item_content'><div style={{backgroundImage: "url(https://images.pexels.com/photos/1209610/pexels-photo-1209610.jpeg?auto=compress&crop=entropy&cs=tinysrgb&dpr=2&fit=crop&h=50&w=50)"}}></div> Лето </div></div>

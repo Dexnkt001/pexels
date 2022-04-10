@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import MainNavigation from "./MainNavigation";
 import HeaderSearch from "./HeaderSearch";
 import icon from '../icons/pngwing.com.png';
@@ -6,29 +6,19 @@ import {useTypedSelector} from "../useTypedSelector";
 import {AsyncMorePicturesCreator, fetchPicturesCreator} from "../redux/reducer/galleryReducer";
 import { useInView } from 'react-intersection-observer';
 import FixedHeader from "./FixedHeader";
+import {useTranslation} from "react-i18next";
 
 
 
 const Header:React.FC = () => {
 
+    const { t } = useTranslation()
 
     const markHeader = useRef<HTMLDivElement>(null);
 
     const { ref, inView} = useInView({
         threshold: 0.2,
     });
-
-
-    // useEffect(()=>{
-    //     let observer = new IntersectionObserver((entries, observer)=>{
-    //         if(entries[0].isIntersecting){
-    //
-    //         }
-    //     },{
-    //         threshold:0.8
-    //     });
-    //     observer.observe(markPhoto.current as unknown as Element)
-    // }, [])
 
     const state = useTypedSelector(state=> state)
 
@@ -44,7 +34,7 @@ const Header:React.FC = () => {
             {inView?(''):(<FixedHeader />)}
             <HeaderSearch />
             <div className='flex_photographerBack'>
-                <a className='photographerBack' href={state.background.linkPhotographerBack}>Фотограф : {state.background.namePhotographerBack}</a>
+                <a className='photographerBack' href={state.background.linkPhotographerBack}>{t("header.photographer")} : {state.background.namePhotographerBack}</a>
             </div>
         </header>
     );

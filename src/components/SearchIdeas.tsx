@@ -1,32 +1,26 @@
 import React from 'react';
 import CategoriesItem from "./CategoriesItem";
+import {useTypedSelector} from "../useTypedSelector";
+import {useTranslation} from "react-i18next";
 
 
 const SearchIdeas:React.FC = () => {
 
-    const categories:string[] = ['Спорт','Путешествие','Космос','Девушки','Парни',
-        'Люди','Горы','Природа','Дома','Город','Поля','Цветы','Учеба','Лето','Работа',
-        'Океан','Пляж', 'Пальмы','Дети','Автомобиль','Улица','Мотоциклы','Гонки','Животные',
-        'Растения','Самолеты','Черно-белый','Луг','Бикини','Сердце','Свадьба','Музыка','Музыка',
-        'Аудио','Дизайн','Ночь','Пустыня','Песок','Скалы','рождество']
+    const { t } = useTranslation()
 
-    let sevenСategories:string[] = []
-
-    while(sevenСategories.length !== 7){
-        let index = Math.ceil(Math.random()*40)
-        if(!sevenСategories.some(element=> element ===  categories[index])){
-            sevenСategories.push(categories[index])
+    const CategoryList = useTypedSelector(state=> {
+            return state.category.category_list;
         }
-    }
+    )
 
     return (
         <div className='search_ideas'>
             <span>
-                <p> Идеи дляоиска:</p>
+                <p>{t("header.suggested")} :</p>
                </span>
             <ul>
-                {sevenСategories.map((element, index) => {
-                    return <CategoriesItem key={index} element={element}/>
+                {CategoryList.map((element, index) => {
+                    return <CategoriesItem key={index} element={t(`categories.${element}`)}/>
                 })}
             </ul>
         </div>

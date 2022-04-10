@@ -1,6 +1,9 @@
- import React from 'react';
+ import React, {useEffect, useRef} from 'react';
  import {useTypedSelector} from "../useTypedSelector";
  import Photo from "./Photo";
+ import {useDispatch} from "react-redux";
+ import {AsyncMorePicturesCreator, fetchPicturesCreator} from "../redux/reducer/galleryReducer";
+ import {useTranslation} from "react-i18next";
 
 
 
@@ -11,7 +14,26 @@
 
  const Gallery = ({req}:request) => {
 
+     const { t } = useTranslation()
+
      const gallery = useTypedSelector(state=> state[req])
+
+     // const markPhoto = useRef<HTMLDivElement>(null);
+     //
+     // const dispatch = useDispatch();
+
+     // useEffect(()=>{
+     //     let observer = new IntersectionObserver((entries, observer)=>{
+     //         if(entries[0].isIntersecting){
+     //             dispatch(fetchPicturesCreator())
+     //             dispatch(AsyncMorePicturesCreator())
+     //         }
+     //     },{
+     //         threshold:0.8
+     //     });
+     //     observer.observe(markPhoto.current as unknown as Element)
+     //
+     // }, [])
 
 
      const firstcolumn = (start:number) => {
@@ -26,10 +48,10 @@
 
 
      return (
+         <>
          <div className='main_content'>
-             <h3>Бесплатные стоковые фото</h3>
+             <h3>{t("gallery.photos")}</h3>
              <div className='flex_container_for_photos'>
-                 {/*<div ref={markPhoto}  className='more_photo'></div>*/}
                  <div className='item_flex_container'>
                      {/*{gallery.pictures.}*/}
                      {firstcolumn(0)}
@@ -45,6 +67,8 @@
                  </div>
              </div>
          </div>
+             {/*<div ref={markPhoto}  className='more_photo'></div>*/}
+         </>
      );
  };
 

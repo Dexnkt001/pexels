@@ -46,14 +46,16 @@ total_results:number;
 
 
 function* getPicturesWorker(){
+    console.log('start')
         const data:picts= yield call(getPicturesAction, api_key)
     const randomValue = Math.floor(Math.random() * data.photos.length)
     const [back, namePhotographerBack, linkPhotographerBack] = [data.photos[randomValue].src.landscape, data.photos[randomValue].photographer,data.photos[randomValue].photographer_url]
-        yield put(FetchPicturesSuccessAction({count_pict:40, pictures:data.photos}))
+        // yield put(FetchPicturesSuccessAction({count_pict:40, pictures:data.photos}))
         yield put(fetchBackground( {background:back, namePhotographerBack:namePhotographerBack, linkPhotographerBack:linkPhotographerBack,}))
 }
 
 function* getMorePicturesWorker(){
+    console.log('more')
     const count:number = yield select(state => state.gallery.count_pict)
     const data:picts= yield call(getMorePicturesAction, api_key,count+40)
         yield put(FetchMorePicturesSuccessAction({count_pict:count+40, pictures:data.photos}))

@@ -1,0 +1,83 @@
+{
+  "header": {
+    "explore": "Explore",
+    "license": "License",
+    "upload": "Upload",
+    "languages": "Languages",
+    "join": "Join",
+    "suggested": "Suggested",
+    "title": "The best free stock photos,\nroyalty free images & videos\nshared by creators.",
+    "search": "Search for free photos and videos",
+    "photographer": "Photographer"
+  },
+  "navigation": {
+    "home": "Home",
+    "discover": "Discover",
+    "videos":"Videos",
+    "leaderboard": "Leaderboard",
+    "challenges": "Challenges"
+  },
+  "gallery": {
+    "photos": "Free Stock Photos"
+  },
+  "category_functions": {
+    "photos": "Photos",
+    "videos": "Videos",
+    "users": "Users",
+    "all_orientation": "All orientation",
+    "all_size": "All size",
+    "enter_hex_code": "Enter hex code"
+  },
+  "orientation": {
+    "horizontal": "Horizontal",
+    "vertical": "Vertical",
+    "square": "Square",
+    "all_orientation": "All orientation"
+  },
+  "size": {
+    "large": "Large",
+    "medium": "Medium",
+    "small": "Small"
+  },
+  "categories": {
+    "Sport": "Sport",
+    "Travel":"Travel",
+    "Space":"Space",
+    "Girls":"Girls",
+    "Guys":"Guys",
+    "People":"People",
+    "Mountains":"Mountains",
+    "Nature":"Nature",
+    "Houses":"Houses",
+    "City":"City",
+    "Fields":"Fields",
+    "Flowers":"Flowers",
+    "Study":"Study",
+    "Summer":"Summer",
+    "Work":"Work",
+    "Ocean":"Ocean",
+    "Beach":"Beach",
+    "Palms":"Palms",
+    "Children":"Children",
+    "Car":"Car",
+    "Street":"Street",
+    "Motorcycles":"Motorcycles",
+    "Racing":"Racing",
+    "Animals":"Animals",
+    "Plants":"Plants",
+    "Aircraft":"Aircraft",
+    "Black and White":"Black and White",
+    "Meadow":"Meadow",
+    "Love":"Love",
+    "Heart":"Heart",
+    "Wedding":"Wedding",
+    "Music":"Music",
+    "Audio":"Audio",
+    "Design":"Design",
+    "Night":"Night",
+    "Desert":"Desert",
+    "Sand":"Sand",
+    "Rocks":"Rocks",
+    "Christmas":"Christmas"
+  }
+}

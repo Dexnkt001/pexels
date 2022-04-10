@@ -1,0 +1,83 @@
+{
+  "header": {
+    "explore": "Найти",
+    "license": "Лицензия",
+    "upload": "Загрузить",
+    "languages": "Языки",
+    "join": "Присоедениться",
+    "suggested": "Идеи для поиска",
+    "title": "Лучшие бесплатные стоковые фото,\nизображения без роялти и видео от\nталантливых авторов.",
+    "search": "Поиск для бесплатных фотографий и видео",
+    "photographer": "Фотограф"
+  },
+  "navigation": {
+    "home": "Главная",
+    "discover": "Найти",
+    "videos":"Видео",
+    "leaderboard": "Лучшие фотографии",
+    "challenges": "Челенджи"
+  },
+  "gallery": {
+    "photos": "Бесплатные стоковые фото"
+  },
+  "category_functions": {
+    "photos": "Фотографии",
+    "videos": "Видео",
+    "users": "Пользователи",
+    "all_orientation": "Ориентация",
+    "all_size": "Размер",
+    "enter_hex_code": "Цвет"
+  },
+  "orientation": {
+    "horizontal": "Горизонтальная",
+    "vertical": "Вертикальная",
+    "square": "Квадратное изображение",
+    "all_orientation": "Все варианты изображения"
+  },
+  "size": {
+    "large": "Большой",
+    "medium": "Средний",
+    "small": "Маленький"
+  },
+  "categories": {
+    "Sport": "Спорт",
+    "Travel":"Путешествие",
+    "Space":"Космос",
+    "Girls":"Девушки",
+    "Guys":"Парни",
+    "People":"Люди",
+    "Mountains":"Горы",
+    "Nature":"Природа",
+    "Houses":"Дома",
+    "City":"Города",
+    "Fields":"Поля",
+    "Flowers":"Цветы",
+    "Study":"Учеба",
+    "Summer":"Лето",
+    "Work":"Работа",
+    "Ocean":"Океан",
+    "Beach":"Пляж",
+    "Palms":"Пальмы",
+    "Children":"Дети",
+    "Car":"Автомобиль",
+    "Street":"Улицы",
+    "Motorcycles":"Мотоциклы",
+    "Racing":"Гонки",
+    "Animals":"Животные",
+    "Plants":"Растения",
+    "Aircraft":"Самолёты",
+    "Black and White":"Чёрно-белое",
+    "Meadow":"Луг",
+    "Love":"Любовь",
+    "Heart":"Сердце",
+    "Wedding":"Свадьба",
+    "Music":"Музыка",
+    "Audio":"Аудио",
+    "Design":"Дизайн",
+    "Night":"Ночь",
+    "Desert":"Пустыня",
+    "Sand":"Песок",
+    "Rocks":"Скалы",
+    "Christmas":"Рождество"
+  }
+}
