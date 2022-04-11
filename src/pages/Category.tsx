@@ -6,15 +6,25 @@ import Loading from "../components/Loading";
 import FixedHeader from "../components/FixedHeader";
 import CategoryFunctions from "../components/CategoryFunctions";
 import {useDispatch} from "react-redux";
-import {AsyncMorePicturesCategoryCreator, fetchPicturesCategoryCreator} from "../redux/reducer/categoryReducer";
+import { useParams } from "react-router-dom";
+
+import {
+    AsyncMorePicturesCategoryCreator,
+    fetchPicturesCategoryCreator,
+    NewCategoryCreator
+} from "../redux/reducer/categoryReducer";
+
+
+
 
 const Category:React.FC = () => {
 
     const state = useTypedSelector(state=>state)
-
+    const { category } = useParams();
 
 
     const markPhoto = useRef<HTMLDivElement>(null);
+
 
     // useLayoutEffect(() => {
     //     console.log(markPhoto);
@@ -27,13 +37,16 @@ const Category:React.FC = () => {
             if(entries[0].isIntersecting){
                 console.log('dva')
                 dispatch(fetchPicturesCategoryCreator())
-                dispatch(AsyncMorePicturesCategoryCreator())
+                  dispatch(AsyncMorePicturesCategoryCreator())
             }
         },{
-            threshold:0.8
+            threshold:0.9
         });
         observer.observe(markPhoto.current as unknown as Element)
     }, [])
+
+
+
 
 
     const loading = () =>{
@@ -43,13 +56,15 @@ const Category:React.FC = () => {
     }
 
     useEffect(()=>{
-       console.log(state)
-    }, [])
+        dispatch(NewCategoryCreator(category as string))
+        // dispatch(AsyncMorePicturesCategoryCreator())
+        console.log('pererisovka : ', category)
+    }, [category])
 
     return (
        <>
            {loading()}
-          <FixedHeader />
+          <FixedHeader categoryValue = {category}/>
            <CategoryFunctions />
            <Gallery req={'category'}/>
            <div ref={markPhoto}  className='more_photo'></div>

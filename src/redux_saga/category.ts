@@ -71,6 +71,7 @@ interface categoryData{
 //     yield put(FetchPicturesCategorySuccessAction({count_pict:40, pictures:data.photos}))
 // }
 
+
 function* getMoreCategoryPicturesWorker(){
     const categoryData:categoryData = yield select(state => state.category)
     const data:picts= yield call(getMoreCategoryPicturesAction, api_key,categoryData.count_pict+40,categoryData.category,
@@ -82,5 +83,5 @@ function* getMoreCategoryPicturesWorker(){
 
 export function* picturesCategoryWatcher(){
     //yield takeEvery(PicturesCategoryActionTypes.ASYNC_CATEGORY_PICTURES, getCategoryPicturesWorker)
-    yield takeEvery(PicturesCategoryActionTypes.ASYNC_CATEGORY_MORE_PICTURES,getMoreCategoryPicturesWorker)
+     yield takeEvery(PicturesCategoryActionTypes.ASYNC_CATEGORY_MORE_PICTURES,getMoreCategoryPicturesWorker)
 }

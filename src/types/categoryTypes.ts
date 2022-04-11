@@ -77,7 +77,10 @@ interface AsyncPicturesCategoryAction{
 }
 
 interface AsyncMorePicturesCategoryAction{
-    type:PicturesCategoryActionTypes.ASYNC_CATEGORY_MORE_PICTURES
+    type:PicturesCategoryActionTypes.ASYNC_CATEGORY_MORE_PICTURES;
 }
 
-export type PictureCategoryAction = FetchPicturesCategoryAction | FetchPicturesCategorySuccessAction | FetchPicturesCategoryErrorAction | AsyncPicturesCategoryAction |  FetchMorePicturesCategorySuccess | AsyncMorePicturesCategoryAction | NewCategory | ClearPicturesCategoryAction|NewSize|NewOrientation | CategoryList
+export type PictureCategoryAction = FetchPicturesCategoryAction | FetchPicturesCategorySuccessAction |
+    FetchPicturesCategoryErrorAction | AsyncPicturesCategoryAction |
+    FetchMorePicturesCategorySuccess | AsyncMorePicturesCategoryAction |
+    NewCategory | ClearPicturesCategoryAction|NewSize|NewOrientation | CategoryList

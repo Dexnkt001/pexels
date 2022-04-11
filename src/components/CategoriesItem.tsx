@@ -15,8 +15,8 @@ const CategoriesItem = ({element}:CategoriesItemType) => {
 
     return (
         <li onClick={()=>{
-            dispatch(NewCategoryCreator(element))
-      //  dispatch(AsyncPicturesCategoryCreator())
+            // dispatch(NewCategoryCreator(element))
+       // dispatch(AsyncPicturesCategoryCreator())
         }}><Link to={`/about/${element}`}>{element}</Link>,</li>
     );
 };

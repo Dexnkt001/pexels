@@ -1,5 +1,5 @@
 import { applyMiddleware, createStore } from "redux";
-import {persistedReducer} from "./reducer";
+import {rootReducer} from "./reducer";
 import createSagaMiddleware from 'redux-saga'
 import { persistStore, persistReducer } from 'redux-persist';
 // @ts-ignore
@@ -8,24 +8,14 @@ import {rootWatcher} from "../redux_saga";
 
 const sagaMiddleware = createSagaMiddleware()
 
-// const persistConfig = {
-//     key: 'root',
-//     storage,
-//     blacklist: ['gallery', 'background', 'category']
-// }
-//
-// const authPersistConfig = {
-//     key: 'category',
-//     storage: storage,
-//     blacklist: ['orientation', 'category_list','size','pictures','count_pict','loading','error']
-// }
+const persistConfig = {
+    key: 'root',
+    storage,
+    blacklist: ['gallery', 'background', 'category']
+}
 
-// const rootReducer = combineReducers({
-//     auth: persistReducer(authPersistConfig, authReducer),
-//     other: otherReducer,
-// })
 
-// const persistedReducer = persistReducer(persistConfig, rootReducer)
+ const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 
 export const store = createStore(persistedReducer, applyMiddleware(sagaMiddleware))

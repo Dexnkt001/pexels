@@ -13,7 +13,7 @@ const Serch:React.FC = () => {
     function lol(e:any){
         e.preventDefault()
         console.log('odin')
-        dispatch(NewCategoryCreator(e.target[0].value))
+        // dispatch(NewCategoryCreator(e.target[0].value))
         navigate("../about/:category")
     }
 
