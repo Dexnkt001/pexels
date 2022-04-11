@@ -14,7 +14,7 @@ const Serch:React.FC = () => {
         e.preventDefault()
         console.log('odin')
         dispatch(NewCategoryCreator(e.target[0].value))
-        navigate("../about")
+        navigate("../about/:category")
     }
 
     const dispatch = useDispatch();

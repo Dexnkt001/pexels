@@ -56,7 +56,7 @@ const App:React.FC = () => {
           <div className="App">
               <Routes>
                   <Route path="/" element={<Main />} />
-                  <Route path="/about" element={<Category />} />
+                  <Route path="/about/:category" element={<Category />} />
               </Routes>
           </div>
       </BrowserRouter>

@@ -24,7 +24,7 @@ const FixedHeader:React.FC = () => {
         console.log('odin')
         dispatch(NewCategoryCreator(e.target[0].value))
         // dispatch(AsyncPicturesCategoryCreator())
-        navigate("../about")
+        navigate(`../about/${e.target[0].value}`)
     }
 
 
