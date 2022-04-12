@@ -21,8 +21,6 @@ const FixedHeader = ({categoryValue}:Prop) => {
 
     const [state, setState] = useState<string>('')
 
-    console.log(state)
-
     // const state = useTypedSelector(state=> state.category)
     // const dispatch = useDispatch();
     let navigate = useNavigate();

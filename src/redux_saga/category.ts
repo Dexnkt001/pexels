@@ -76,9 +76,7 @@ function* getMoreCategoryPicturesWorker(){
     const categoryData:categoryData = yield select(state => state.category)
     const data:picts= yield call(getMoreCategoryPicturesAction, api_key,categoryData.count_pict+40,categoryData.category,
         categoryData.size, categoryData.orientation)
-    console.log(categoryData.count_pict + 40)
-    yield put(FetchMorePicturesCategorySuccessAction({count_pict:categoryData.count_pict + 40, pictures:data.photos}))
-
+    yield put(FetchMorePicturesCategorySuccessAction({count_pict:categoryData.count_pict + data.photos.length, pictures:data.photos}))
 }
 
 export function* picturesCategoryWatcher(){
