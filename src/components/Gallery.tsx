@@ -36,7 +36,7 @@
      // }, [])
 
 
-     const firstcolumn = (start:number) => {
+     const column = (start:number) => {
          let pictures = []
          {for(let i = start; i<gallery.pictures.length;i+=4){
              pictures.push(
@@ -46,27 +46,54 @@
          return pictures
      }
 
+     function galleryCreator(){
+         if(gallery.pictures.length !== 0) {
+             return <>
+                 <h3>{t("gallery.photos")}</h3>
+                 <div className='flex_container_for_photos'>
+                     <div className='item_flex_container'>
+                         {/*{gallery.pictures.}*/}
+                         {column(0)}
+                     </div>
+                     <div className='item_flex_container'>
+                         {column(1)}
+                     </div>
+                     <div className='item_flex_container'>
+                         {column(2)}
+                     </div>
+                     <div className='item_flex_container'>
+                         {column(3)}
+                     </div>
+                 </div>
+             </>
+         }else {
+             return <h1 className='no_results'><p>No results</p></h1>
+         }
+     }
+
 
      return (
          <>
          <div className='main_content'>
-             <h3>{t("gallery.photos")}</h3>
-             <div className='flex_container_for_photos'>
-                 <div className='item_flex_container'>
-                     {/*{gallery.pictures.}*/}
-                     {firstcolumn(0)}
-                 </div>
-                 <div className='item_flex_container'>
-                     {firstcolumn(1)}
-                 </div>
-                 <div className='item_flex_container'>
-                     {firstcolumn(2)}
-                 </div>
-                 <div className='item_flex_container'>
-                     {firstcolumn(3)}
-                 </div>
-             </div>
+             {/*<h3>{t("gallery.photos")}</h3>*/}
+             {/*<div className='flex_container_for_photos'>*/}
+             {/*    <div className='item_flex_container'>*/}
+             {/*        /!*{gallery.pictures.}*!/*/}
+             {/*        {column(0)}*/}
+             {/*    </div>*/}
+             {/*    <div className='item_flex_container'>*/}
+             {/*        {column(1)}*/}
+             {/*    </div>*/}
+             {/*    <div className='item_flex_container'>*/}
+             {/*        {column(2)}*/}
+             {/*    </div>*/}
+             {/*    <div className='item_flex_container'>*/}
+             {/*        {column(3)}*/}
+             {/*    </div>*/}
+             {/*</div>*/}
+             {galleryCreator()}
          </div>
+             {/*{galleryCreator()}*/}
              {/*<div ref={markPhoto}  className='more_photo'></div>*/}
          </>
      );

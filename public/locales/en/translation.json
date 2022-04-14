@@ -66,18 +66,40 @@
     "Animals":"Animals",
     "Plants":"Plants",
     "Aircraft":"Aircraft",
-    "Black and White":"Black and White",
     "Meadow":"Meadow",
     "Love":"Love",
     "Heart":"Heart",
     "Wedding":"Wedding",
     "Music":"Music",
-    "Audio":"Audio",
     "Design":"Design",
     "Night":"Night",
     "Desert":"Desert",
     "Sand":"Sand",
     "Rocks":"Rocks",
-    "Christmas":"Christmas"
+    "Christmas":"Christmas",
+    "Food": "Food",
+    "Dark": "Dark",
+    "Sky": "Sky"
+  },
+  "titleCategory": {
+    "Photo": "Photo",
+    "andPictures": "And Pictures"
+  },
+  "flexCategories": {
+    "Summer":"Summer",
+    "romanticCouple":"Romantic couple",
+    "Kiss":"Kiss",
+    "Sky":"Sky",
+    "urbanLandscape":"UrbanL landscape",
+    "Skyscraper":"Skyscraper",
+    "newYork":"New York",
+    "Sunset":"Sunset",
+    "Desert":"Desert",
+    "Forest":"Forest",
+    "Woman":"Woman",
+    "Love":"Love",
+    "Style":"Style",
+    "oceanWaves":"Ocean waves",
+    "Horizon":"Horizon"
   }
 }

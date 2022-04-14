@@ -23,8 +23,8 @@ return res
 
 const getMorePicturesAction = (key:string, count:number) => {
 
-    const page:number =count/40
-        const res= fetch(`https://api.pexels.com/v1/curated?page=${page}&per_page=40`,{
+    const page:number = Math.ceil(count/40)
+        const res= fetch(`https://api.pexels.com/v1/curated?page=${page}&per_page=${count%40===20 ? 20 : 40}`,{
             headers: {
                 Authorization: key
             }
@@ -57,8 +57,9 @@ function* getPicturesWorker(){
 function* getMorePicturesWorker(){
     console.log('more')
     const count:number = yield select(state => state.gallery.count_pict)
-    const data:picts= yield call(getMorePicturesAction, api_key,count+40)
-        yield put(FetchMorePicturesSuccessAction({count_pict:count+40, pictures:data.photos}))
+    const data:picts= yield call(getMorePicturesAction, api_key,count+20)
+    let photos = data.photos.length === 20 ? data.photos : data.photos.slice(19)
+        yield put(FetchMorePicturesSuccessAction({count_pict:photos.length, pictures:photos}))
 
 }
 

@@ -40,7 +40,6 @@ const Category:React.FC = () => {
     // }
 
     useEffect(()=>{
-        console.log("eeeeeeeeeeefeeeeeeeeeeeeeeeeeeeeeeeect")
             let observer = new IntersectionObserver((entries, observer)=>{
                 if(entries[0].isIntersecting){
                     console.log('dva')
@@ -57,21 +56,11 @@ const Category:React.FC = () => {
         return ()=>{observer.unobserve(markPhoto.current as unknown as Element)}
     }, [category])
 
-
-
-
-
     const loading = () =>{
         if(state.category.loading){
             return   <Loading />
         }else return
     }
-
-    useEffect(()=>{
-        dispatch(NewCategoryCreator(category as string))
-        // dispatch(AsyncMorePicturesCategoryCreator())
-        console.log('pererisovka : ', category)
-    }, [category])
 
     return (
        <>

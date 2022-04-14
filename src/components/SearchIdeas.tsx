@@ -20,7 +20,7 @@ const SearchIdeas:React.FC = () => {
                </span>
             <ul>
                 {CategoryList.map((element, index) => {
-                    return <CategoriesItem key={index} element={t(`categories.${element}`)}/>
+                    return <CategoriesItem key={index} element={t(`categories.${element}`)} index = {index}/>
                 })}
             </ul>
         </div>

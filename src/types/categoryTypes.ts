@@ -20,7 +20,9 @@ export enum PicturesCategoryActionTypes{
     CLEAR_PICTURES_CATEGORY='CLEAR_PICTURES_CATEGORY',
     NEW_ORIENTATION = 'NEW_ORIENTATION',
     NEW_SIZE = 'NEW_SIZE',
-    CATEGORY_LIST='CATEGORY_LIST'
+    CATEGORY_LIST='CATEGORY_LIST',
+    DELETE_ORIENTATION='DELETE_ORIENTATION',
+    DELETE_SIZE='DELETE_SIZE'
 }
 
 interface CategoryList{
@@ -59,6 +61,14 @@ interface NewCategory{
     payload:string
 }
 
+interface DeleteOrientation{
+    type:PicturesCategoryActionTypes.DELETE_ORIENTATION;
+}
+
+interface DeleteSize{
+    type:PicturesCategoryActionTypes.DELETE_SIZE;
+}
+
 interface FetchPicturesCategorySuccessAction{
     type: PicturesCategoryActionTypes.FETCH_CATEGORY_PICTURES_SUCCESS;
     payload:{
@@ -83,4 +93,4 @@ interface AsyncMorePicturesCategoryAction{
 export type PictureCategoryAction = FetchPicturesCategoryAction | FetchPicturesCategorySuccessAction |
     FetchPicturesCategoryErrorAction | AsyncPicturesCategoryAction |
     FetchMorePicturesCategorySuccess | AsyncMorePicturesCategoryAction |
-    NewCategory | ClearPicturesCategoryAction|NewSize|NewOrientation | CategoryList
+    NewCategory | ClearPicturesCategoryAction|NewSize|NewOrientation | CategoryList | DeleteOrientation | DeleteSize

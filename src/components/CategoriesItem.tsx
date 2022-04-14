@@ -7,9 +7,10 @@ import { NewCategoryCreator} from "../redux/reducer/categoryReducer";
 
 interface CategoriesItemType{
     element:string
+    index:number
 }
 
-const CategoriesItem = ({element}:CategoriesItemType) => {
+const CategoriesItem = ({element, index}:CategoriesItemType) => {
 
     const dispatch = useDispatch();
 
@@ -17,7 +18,7 @@ const CategoriesItem = ({element}:CategoriesItemType) => {
         <li onClick={()=>{
             // dispatch(NewCategoryCreator(element))
        // dispatch(AsyncPicturesCategoryCreator())
-        }}><Link to={`/about/${element}`}>{element}</Link>,</li>
+        }}><Link to={`/about/${element}`}>{element}</Link>{index === 6? "." : ','}</li>
     );
 };
 

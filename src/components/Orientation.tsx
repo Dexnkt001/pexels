@@ -25,8 +25,8 @@ const Orientation:React.FC = () => {
 
     return (
         <ul className='orientation_list'>
-            <li onClick={()=>{ClickOrientation('')}} className={addClass({'active_size_item':(title === '')})}>{t("orientation.all_orientation")}</li>
-            <li onClick={()=>{ClickOrientation('landscape')}} className={addClass({'active_size_item':(title === 'landscape')})}> <i className='rd__svg-icon'>
+            <li onClick={()=>{ClickOrientation('')}} className={addClass({'active_orientation_item':(title === '')})}>{t("orientation.all_orientation")}</li>
+            <li onClick={()=>{ClickOrientation('landscape')}} className={addClass({'active_orientation_item':(title === 'landscape')})}> <i className='rd__svg-icon'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 24 16">
                     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                         <g transform="translate(-914.000000, -184.000000)" fill="#9E9E9E" fillRule="nonzero">
@@ -37,7 +37,7 @@ const Orientation:React.FC = () => {
                 </svg>
             </i>
                 <span>{t("orientation.horizontal")}</span></li>
-            <li onClick={()=>{ClickOrientation('portrait')}} className={addClass({'active_size_item':(title === 'portrait')})}>
+            <li onClick={()=>{ClickOrientation('portrait')}} className={addClass({'active_orientation_item':(title === 'portrait')})}>
                 <i className='rd__svg-icon'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="24px" viewBox="0 0 16 24">
                         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -50,7 +50,7 @@ const Orientation:React.FC = () => {
                 </i>
                 <span>{t("orientation.vertical")}</span>
             </li>
-            <li onClick={()=>{ClickOrientation('square')}} className={addClass({'active_size_item':(title === 'square')})}>
+            <li onClick={()=>{ClickOrientation('square')}} className={addClass({'active_orientation_item':(title === 'square')})}>
                 <i className='rd__svg-icon'>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 20 20">
                         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">

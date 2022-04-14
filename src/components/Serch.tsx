@@ -10,11 +10,9 @@ const Serch:React.FC = () => {
 
     let navigate = useNavigate();
 
-    function lol(e:any){
+    function submit(e:any){
         e.preventDefault()
-        console.log('odin')
-        // dispatch(NewCategoryCreator(e.target[0].value))
-        navigate("../about/:category")
+        navigate(`../about/${e.target[0].value}`)
     }
 
     const dispatch = useDispatch();
@@ -22,7 +20,7 @@ const Serch:React.FC = () => {
     return (
         <div>
             <form onSubmit={(e)=>{
-                lol(e)
+                submit(e)
             }} action="">
                 <input className='search_inp' type="search" placeholder={t("header.search")}/>
                 <button>

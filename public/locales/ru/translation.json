@@ -66,18 +66,40 @@
     "Animals":"Животные",
     "Plants":"Растения",
     "Aircraft":"Самолёты",
-    "Black and White":"Чёрно-белое",
     "Meadow":"Луг",
     "Love":"Любовь",
     "Heart":"Сердце",
     "Wedding":"Свадьба",
     "Music":"Музыка",
-    "Audio":"Аудио",
     "Design":"Дизайн",
     "Night":"Ночь",
     "Desert":"Пустыня",
     "Sand":"Песок",
     "Rocks":"Скалы",
-    "Christmas":"Рождество"
+    "Christmas":"Рождество",
+    "Food": "Еда",
+    "Dark": "Темное",
+    "Sky": "Небо"
+  },
+  "titleCategory": {
+    "Photo": "Фото",
+    "andPictures": "И Картинки"
+  },
+  "flexCategories": {
+    "Summer":"Лето",
+    "romanticCouple":"Романтичная пара",
+    "Kiss":"Поцелуй",
+    "Sky":"Небо",
+    "urbanLandscape":"Городской пейзаж",
+    "Skyscraper":"Небоскреб",
+    "newYork":"Нью-Йорк",
+    "Sunset":"Закат",
+    "Desert":"Пустыня",
+    "Forest":"Лес",
+    "Woman":"Девушка",
+    "Love":"Любовь",
+    "Style":"Стиль",
+    "oceanWaves":"Окенские волны",
+    "Horizon":"Горизонт"
   }
 }
