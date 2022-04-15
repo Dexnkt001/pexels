@@ -12,7 +12,10 @@ const Serch:React.FC = () => {
 
     function submit(e:any){
         e.preventDefault()
-        navigate(`../about/${e.target[0].value}`)
+        if(e.target[0].value.trim()!==''){
+            navigate(`../about/${encodeURIComponent(e.target[0].value)}`)
+        }
+
     }
 
     const dispatch = useDispatch();

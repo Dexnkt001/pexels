@@ -40,12 +40,12 @@ const Category:React.FC = () => {
     // }
 
     useEffect(()=>{
+        const current = markPhoto.current as unknown as HTMLElement
             let observer = new IntersectionObserver((entries, observer)=>{
                 if(entries[0].isIntersecting){
                     console.log('dva')
                     dispatch(fetchPicturesCategoryCreator())
                     dispatch(AsyncMorePicturesCategoryCreator())
-                    // setBot(bot + 2000)
                 }
             },{
                 threshold:0.8
@@ -53,7 +53,7 @@ const Category:React.FC = () => {
             observer.observe(markPhoto.current as unknown as Element)
 
         dispatch(NewCategoryCreator(category as string))
-        return ()=>{observer.unobserve(markPhoto.current as unknown as Element)}
+        return ()=>{observer.unobserve(current)}
     }, [category])
 
     const loading = () =>{

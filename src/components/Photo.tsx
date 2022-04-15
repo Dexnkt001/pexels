@@ -11,10 +11,10 @@ import {AddLikePhoto, DeleteLikePhoto} from "../redux/reducer/likedIdReducer";
 interface Photos{
     mainPhoto:string;
     namePhotographer:string;
-    like:boolean;
     alt:string;
     urlPhotographer:string;
     idPhoto:number;
+    original:string;
     children?:ReactChild| React.ReactNode
 }
 
@@ -32,7 +32,7 @@ interface photoElement{
     width: number
 }
 
- const Photo:React.FC<Photos> = ({idPhoto, mainPhoto, namePhotographer, like, alt,urlPhotographer}) => {
+ const Photo:React.FC<Photos> = ({idPhoto, mainPhoto,original, namePhotographer, alt,urlPhotographer}) => {
 
      const state = useTypedSelector(state=>{
              return {
@@ -65,6 +65,7 @@ interface photoElement{
      }
 
      const saveUrlAsFile = async (href:string, fileName:string)=>{
+         console.log(href)
          const res = await fetch(href);
          const data = await res.blob();
          const photo = URL.createObjectURL(data);
@@ -85,7 +86,7 @@ interface photoElement{
                      <span className='name_photographer'>{namePhotographer}</span>
                  </a>
                  <div className='action_photo'>
-                    <img onClick={()=>{saveUrlAsFile(mainPhoto,alt)}} className='icons_actions_photo' src={load} alt="lol"/>
+                    <img onClick={()=>{saveUrlAsFile(original,alt)}} className='icons_actions_photo' src={load} alt="lol"/>
                      <img className='icons_actions_photo' src={add} alt="lol"/>
                      {likeFun(idPhoto)}
                  </div>

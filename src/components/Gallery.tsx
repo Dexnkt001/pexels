@@ -4,6 +4,7 @@
  import {useDispatch} from "react-redux";
  import {AsyncMorePicturesCreator, fetchPicturesCreator} from "../redux/reducer/galleryReducer";
  import {useTranslation} from "react-i18next";
+ import {useParams} from "react-router-dom";
 
 
 
@@ -12,7 +13,10 @@
  }
 
 
+
  const Gallery = ({req}:request) => {
+
+     const {category} = useParams();
 
      const { t } = useTranslation()
 
@@ -35,12 +39,18 @@
      //
      // }, [])
 
+     function categoryView(req:string){
+         if(req === 'category'){
+             return category
+         }
+     }
+
 
      const column = (start:number) => {
          let pictures = []
          {for(let i = start; i<gallery.pictures.length;i+=4){
              pictures.push(
-               <Photo key={gallery.pictures[i].id} idPhoto={gallery.pictures[i].id} mainPhoto={gallery.pictures[i]['src'].large} namePhotographer={gallery.pictures[i]['photographer']} like={gallery.pictures[i]['liked']} alt={gallery.pictures[i].alt} urlPhotographer={gallery.pictures[i].photographer_url}/>
+               <Photo key={gallery.pictures[i].id} idPhoto={gallery.pictures[i].id} mainPhoto={gallery.pictures[i]['src'].large} original={gallery.pictures[i]['src'].original} namePhotographer={gallery.pictures[i]['photographer']} alt={gallery.pictures[i].alt} urlPhotographer={gallery.pictures[i].photographer_url}/>
              )
          }}
          return pictures
@@ -67,7 +77,7 @@
                  </div>
              </>
          }else {
-             return <h1 className='no_results'><p>No results</p></h1>
+             return <h1 className='no_results'><p>{t(`noResults`)}  " {categoryView(req)} "</p></h1>
          }
      }
 

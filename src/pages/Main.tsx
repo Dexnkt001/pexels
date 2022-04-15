@@ -20,6 +20,7 @@ const Main:React.FC = () => {
     const dispatch = useDispatch();
 
     useEffect(()=>{
+        console.log('lol')
         let observer = new IntersectionObserver((entries, observer)=>{
             if(entries[0].isIntersecting){
                 dispatch(fetchPicturesCreator())

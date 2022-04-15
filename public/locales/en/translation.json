@@ -5,7 +5,7 @@
     "upload": "Upload",
     "languages": "Languages",
     "join": "Join",
-    "suggested": "Suggested",
+    "suggested": "Suggested :",
     "title": "The best free stock photos,\nroyalty free images & videos\nshared by creators.",
     "search": "Search for free photos and videos",
     "photographer": "Photographer"
@@ -101,5 +101,6 @@
     "Style":"Style",
     "oceanWaves":"Ocean waves",
     "Horizon":"Horizon"
-  }
+  },
+  "noResults": "No Result For Query"
 }

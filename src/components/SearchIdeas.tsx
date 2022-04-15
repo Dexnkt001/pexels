@@ -16,7 +16,7 @@ const SearchIdeas:React.FC = () => {
     return (
         <div className='search_ideas'>
             <span>
-                <p>{t("header.suggested")} :</p>
+                <p>{t("header.suggested")}</p>
                </span>
             <ul>
                 {CategoryList.map((element, index) => {

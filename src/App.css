@@ -632,6 +632,9 @@ position: absolute;
     .fixed_header{
         width: 100vw;
     }
+    .search_ideas ul{
+        flex-wrap: wrap;
+    }
 }
 
 @media screen and (max-width: 550px){

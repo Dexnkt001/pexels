@@ -35,7 +35,7 @@ const MainNavigation:React.FC = () => {
                     {/*</svg>*/}
                     <p>{t("header.languages")}</p>
                 </li>
-                <li className='join_btn' onClick={(e)=>{ navigate("../about")}}>
+                <li className='join_btn'>
                     <p className='join'>{t("header.join")}</p>
                 </li>
             </ul>
