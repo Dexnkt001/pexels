@@ -1,6 +1,4 @@
 import React from 'react';
-import { NewCategoryCreator} from "../redux/reducer/categoryReducer";
-import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 
@@ -17,8 +15,6 @@ const Serch:React.FC = () => {
         }
 
     }
-
-    const dispatch = useDispatch();
 
     return (
         <div>

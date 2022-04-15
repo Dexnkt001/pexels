@@ -1,4 +1,4 @@
-export interface initBackground{
+export interface IInitBackground{
     background:string;
     namePhotographerBack:string;
     linkPhotographerBack:string;
@@ -6,7 +6,7 @@ export interface initBackground{
 
 export  const NEW_BACKGROUND:string = 'NEW_BACKGROUND'
 
-export interface NewBackgroundAction{
+export interface INewBackgroundAction{
     type:typeof NEW_BACKGROUND;
     payload:{
         background:string;

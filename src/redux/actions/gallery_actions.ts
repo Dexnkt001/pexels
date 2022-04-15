@@ -1,27 +1,9 @@
-import {PictureAction, PicturesActionTypes} from "../../types/pictures";
+import {IPictures, PicturesActionTypes} from "../../types/pictures";
 
-export interface payloadFetch{
-    count_pict:number;
-    pictures:any[];
-}
 
 export interface payloadFetchMore{
     count_pict:number;
-    pictures:any[];
-}
-
-
-export const FetchPicturesAction = () : PictureAction =>{
-return{
-type: PicturesActionTypes.FETCH_PICTURES
-}
-}
-
-export const FetchPicturesSuccessAction = (payload:payloadFetch) => {
-return{
-type:PicturesActionTypes.FETCH_PICTURES_SUCCESS,
-    payload
-}
+    pictures:IPictures[];
 }
 
 
@@ -32,8 +14,6 @@ export const FetchMorePicturesSuccessAction = (payload:payloadFetchMore) => {
     }
 }
 
-export const FetchPicturesErrorAction = () => {
-return{
-type:PicturesActionTypes.FETCH_PICTURES_ERROR
-}
-}
+export const fetchPicturesCreator = () => ({type:PicturesActionTypes.FETCH_PICTURES})
+export const AsyncPicturesCreator = () => ({type:PicturesActionTypes.ASYNC_PICTURES})
+export const AsyncMorePicturesCreator = () => ({type:PicturesActionTypes.ASYNC_MORE_PICTURES})

@@ -1,16 +1,12 @@
 import React, {useEffect, Suspense} from 'react';
 import './App.css';
-import Header from "./components/Header";
 import {useTypedSelector} from "./useTypedSelector";
 import {useDispatch} from "react-redux";
-import {AsyncMorePicturesCreator, AsyncPicturesCreator} from "./redux/reducer/galleryReducer";
-import Navigation from "./components/Navigation";
-import Gallery from "./components/Gallery";
-import Loading from "./components/Loading";
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Main from "./pages/Main";
 import Category from "./pages/Category";
-import {CategoryLIstCreator} from "./redux/reducer/categoryReducer";
+import {CategoryLIstCreator} from "./redux/actions/category_actions";
+import {AsyncPicturesCreator} from "./redux/actions/gallery_actions";
 
 const App:React.FC = () => {
     const state = useTypedSelector(state=>state)
@@ -20,15 +16,6 @@ const App:React.FC = () => {
         dispatch(CategoryLIstCreator(categoryList()))
     },[])
 
-    console.log(state)
-
-    //   window.addEventListener('scroll', function() {
-    //     console.log(window.scrollY)
-    //     if(window.scrollY > 3000){
-    //         console.log('Predel')
-    //         dispatch(AsyncMorePicturesCreator())
-    //     }
-    // });
 
     function categoryList(){
 

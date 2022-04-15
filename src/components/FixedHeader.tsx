@@ -1,22 +1,12 @@
 import React, {useEffect, useRef, useState} from 'react';
 import icon from "../icons/pngwing.com.png";
 import MainNavigation from "./MainNavigation";
-import {useTypedSelector} from "../useTypedSelector";
 import {Link, useNavigate, useParams} from "react-router-dom";
-import {NewCategoryCreator} from "../redux/reducer/categoryReducer";
-import {useDispatch} from "react-redux";
 import {useTranslation} from "react-i18next";
 
-interface Prop{
-    categoryValue?:string
-}
 
-//     type Props = {
-//     children?: React.ReactNode;
-//     inView: boolean;
-// };
 
-const FixedHeader = ({categoryValue}:Prop) => {
+const FixedHeader = () => {
 
     const { category } = useParams();
 
@@ -24,15 +14,11 @@ const FixedHeader = ({categoryValue}:Prop) => {
 
     const { t } = useTranslation()
 
-    // const state = useTypedSelector(state=> state.category)
-    // const dispatch = useDispatch();
     let navigate = useNavigate();
 
     function submit(e:any){
          e.preventDefault()
-        // dispatch(NewCategoryCreator(e.target[0].value))
         if(e.target[0].value.trim() !== ''){
-
             navigate(`../about/${encodeURIComponent(e.target[0].value)}`)
         }
 
@@ -40,7 +26,6 @@ const FixedHeader = ({categoryValue}:Prop) => {
 
 
     useEffect(()=>{
-        // dispatch(NewCategoryCreator(category as string))
         if(category !== undefined){
             setState(category)
         }

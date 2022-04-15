@@ -1,7 +1,7 @@
 import {
-    initBackground,
+    IInitBackground,
     NEW_BACKGROUND,
-    NewBackgroundAction,
+    INewBackgroundAction,
 } from "../../types/backGround";
 
 
@@ -11,23 +11,15 @@ interface payloadNewBackground{
     linkPhotographerBack:string;
 }
 
-const InitStateCategoriesAndLan : initBackground = {
+const InitStateCategoriesAndLan : IInitBackground = {
     background:'',
     namePhotographerBack:'',
     linkPhotographerBack:'',
 }
 
-export const BackgroundReducer = (state=InitStateCategoriesAndLan, action:NewBackgroundAction) => {
+export const BackgroundReducer = (state=InitStateCategoriesAndLan, action:INewBackgroundAction) => {
 switch (action.type) {
     case NEW_BACKGROUND: return { background:action.payload.background, namePhotographerBack:action.payload.namePhotographerBack,linkPhotographerBack:action.payload.linkPhotographerBack}
     default: return state
 }
 }
-
-// export const NewBackgroundCreator = (payload:payloadNewBackground) =>(
-//     {
-//         type:NEW_BACKGROUND,
-//         payload
-//     }
-// )
-

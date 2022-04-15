@@ -1,9 +1,9 @@
 import React from 'react';
-import {NewSizeCategoryCreator} from '../redux/reducer/categoryReducer'
 import {useDispatch} from "react-redux";
 import {useTypedSelector} from "../useTypedSelector";
 import addClass from 'classnames';
 import {useTranslation} from "react-i18next";
+import {NewSizeCategoryCreator} from "../redux/actions/category_actions";
 
 const Size:React.FC = () => {
 
@@ -22,11 +22,6 @@ const Size:React.FC = () => {
         }else return
     }
 
-
-    // let className = 'menu';
-    // if (this.props.isActive) {
-    //     className += ' menu-active';
-    // }
 
     return (
         <ul className='size_list'>

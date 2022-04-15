@@ -7,12 +7,11 @@ import FixedHeader from "../components/FixedHeader";
 import CategoryFunctions from "../components/CategoryFunctions";
 import {useDispatch} from "react-redux";
 import { useParams } from "react-router-dom";
-
 import {
     AsyncMorePicturesCategoryCreator,
     fetchPicturesCategoryCreator,
     NewCategoryCreator
-} from "../redux/reducer/categoryReducer";
+} from "../redux/actions/category_actions";
 
 
 
@@ -21,29 +20,17 @@ const Category:React.FC = () => {
 
     const state = useTypedSelector(state=>state)
     const { category } = useParams();
-    // const [bot, setBot] = useState(0)
 
 
     const markPhoto = useRef<HTMLDivElement>(null);
 
 
-    // useLayoutEffect(() => {
-    //     console.log(markPhoto);
-    // })
-
     const dispatch = useDispatch();
-
-    // function more(){
-    //     if(!state.category.loading && state.category.count_pict !==0){
-    //         return  <div ref={markPhoto}  className='more_photo'></div>
-    //     }else return <></>
-    // }
 
     useEffect(()=>{
         const current = markPhoto.current as unknown as HTMLElement
             let observer = new IntersectionObserver((entries, observer)=>{
                 if(entries[0].isIntersecting){
-                    console.log('dva')
                     dispatch(fetchPicturesCategoryCreator())
                     dispatch(AsyncMorePicturesCategoryCreator())
                 }
@@ -65,7 +52,7 @@ const Category:React.FC = () => {
     return (
        <>
            {loading()}
-          <FixedHeader categoryValue = {category}/>
+          <FixedHeader/>
            <CategoryFunctions />
            <Gallery req={'category'}/>
            <div ref={markPhoto} className='more_photo'></div>

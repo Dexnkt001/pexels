@@ -1,14 +1,14 @@
-import {PictereState, PictureAction, PicturesActionTypes} from "../../types/pictures";
+import {IPictereState, PictureAction, PicturesActionTypes} from "../../types/pictures";
 
 
-const initialState:PictereState = {
+const initialState:IPictereState = {
   pictures:[],
   count_pict:0,
   loading : false,
   error : null,
 }
 
-export const galleryReducer = (state = initialState, action:PictureAction):PictereState => {
+export const galleryReducer = (state = initialState, action:PictureAction):IPictereState => {
   switch (action.type){
     case PicturesActionTypes.FETCH_PICTURES: return {loading:true,
       error:null,
@@ -34,10 +34,3 @@ export const galleryReducer = (state = initialState, action:PictureAction):Picte
     default : return state
   }
 }
-
-
- export const fetchPicturesCreator = () => ({type:PicturesActionTypes.FETCH_PICTURES})
-// export const fetchPicturesSuccessCreator = () => ({type:PicturesActionTypes.FETCH_PICTURES_SUCCESS})
-// export const fetchPicturesErrorCreator = () => ({type:PicturesActionTypes.FETCH_PICTURES_ERROR})
-export const AsyncPicturesCreator = () => ({type:PicturesActionTypes.ASYNC_PICTURES})
-export const AsyncMorePicturesCreator = () => ({type:PicturesActionTypes.ASYNC_MORE_PICTURES})

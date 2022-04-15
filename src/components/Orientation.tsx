@@ -1,9 +1,9 @@
 import React from 'react';
 import {useTypedSelector} from "../useTypedSelector";
 import {useDispatch} from "react-redux";
-import {NewOrientationCategoryCreator} from "../redux/reducer/categoryReducer";
 import addClass from 'classnames';
 import {useTranslation} from "react-i18next";
+import {NewOrientationCategoryCreator} from "../redux/actions/category_actions";
 
 const Orientation:React.FC = () => {
 

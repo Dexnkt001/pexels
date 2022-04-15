@@ -127,18 +127,3 @@ export const categoryReducer = (state = initialState, action:PictureCategoryActi
         default : return state
     }
 }
-
-
-
-export const fetchPicturesCategoryCreator = () => ({type:PicturesCategoryActionTypes.FETCH_CATEGORY_PICTURES})
-export const NewCategoryCreator = (payload:string) => ({type:PicturesCategoryActionTypes.NEW_CATEGORY, payload})
-export const ClearCategoryCreator = () => ({type:PicturesCategoryActionTypes.CLEAR_PICTURES_CATEGORY})
-export const NewSizeCategoryCreator = (payload:string) => ({type:PicturesCategoryActionTypes.NEW_SIZE, payload})
-export const NewOrientationCategoryCreator = (payload:string) => ({type:PicturesCategoryActionTypes.NEW_ORIENTATION, payload})
-export const CategoryLIstCreator = (payload:string[]) => ({type:PicturesCategoryActionTypes.CATEGORY_LIST, payload})
-// export const fetchPicturesSuccessCreator = () => ({type:PicturesActionTypes.FETCH_PICTURES_SUCCESS})
-// export const fetchPicturesErrorCreator = () => ({type:PicturesActionTypes.FETCH_PICTURES_ERROR})
-//export const AsyncPicturesCategoryCreator = () => ({type:PicturesCategoryActionTypes.ASYNC_CATEGORY_PICTURES})
-export const DeleteOrientationCreator = () => ({type:PicturesCategoryActionTypes.DELETE_ORIENTATION})
-export const DeleteSizeCreator = () => ({type:PicturesCategoryActionTypes.DELETE_SIZE})
-export const AsyncMorePicturesCategoryCreator = () => ({type:PicturesCategoryActionTypes.ASYNC_CATEGORY_MORE_PICTURES})

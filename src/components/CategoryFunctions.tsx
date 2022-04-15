@@ -5,7 +5,7 @@ import Orientation from "./Orientation";
 import addClass from 'classnames';
 import {useTranslation} from "react-i18next";
 import {useDispatch} from "react-redux";
-import {DeleteOrientationCreator, DeleteSizeCreator} from "../redux/reducer/categoryReducer";
+import {DeleteOrientationCreator, DeleteSizeCreator} from "../redux/actions/category_actions";
 
 const CategoryFunctions:React.FC = () => {
 

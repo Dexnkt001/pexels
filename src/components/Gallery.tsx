@@ -1,8 +1,6 @@
- import React, {useEffect, useRef} from 'react';
+ import React from 'react';
  import {useTypedSelector} from "../useTypedSelector";
  import Photo from "./Photo";
- import {useDispatch} from "react-redux";
- import {AsyncMorePicturesCreator, fetchPicturesCreator} from "../redux/reducer/galleryReducer";
  import {useTranslation} from "react-i18next";
  import {useParams} from "react-router-dom";
 
@@ -22,26 +20,10 @@
 
      const gallery = useTypedSelector(state=> state[req])
 
-     // const markPhoto = useRef<HTMLDivElement>(null);
-     //
-     // const dispatch = useDispatch();
-
-     // useEffect(()=>{
-     //     let observer = new IntersectionObserver((entries, observer)=>{
-     //         if(entries[0].isIntersecting){
-     //             dispatch(fetchPicturesCreator())
-     //             dispatch(AsyncMorePicturesCreator())
-     //         }
-     //     },{
-     //         threshold:0.8
-     //     });
-     //     observer.observe(markPhoto.current as unknown as Element)
-     //
-     // }, [])
 
      function categoryView(req:string){
          if(req === 'category'){
-             return category
+             return ` ${category} `
          }
      }
 
@@ -77,35 +59,15 @@
                  </div>
              </>
          }else {
-             return <h1 className='no_results'><p>{t(`noResults`)}  " {categoryView(req)} "</p></h1>
+             return <h1 className='no_results'><p>{t(`noResults`)}  {categoryView(req)}</p></h1>
          }
      }
 
 
      return (
-         <>
          <div className='main_content'>
-             {/*<h3>{t("gallery.photos")}</h3>*/}
-             {/*<div className='flex_container_for_photos'>*/}
-             {/*    <div className='item_flex_container'>*/}
-             {/*        /!*{gallery.pictures.}*!/*/}
-             {/*        {column(0)}*/}
-             {/*    </div>*/}
-             {/*    <div className='item_flex_container'>*/}
-             {/*        {column(1)}*/}
-             {/*    </div>*/}
-             {/*    <div className='item_flex_container'>*/}
-             {/*        {column(2)}*/}
-             {/*    </div>*/}
-             {/*    <div className='item_flex_container'>*/}
-             {/*        {column(3)}*/}
-             {/*    </div>*/}
-             {/*</div>*/}
              {galleryCreator()}
          </div>
-             {/*{galleryCreator()}*/}
-             {/*<div ref={markPhoto}  className='more_photo'></div>*/}
-         </>
      );
  };
 

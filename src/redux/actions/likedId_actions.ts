@@ -1,20 +1,7 @@
-import {NEW_BACKGROUND} from "../../types/backGround";
+import {likedIdTypes} from "../../types/likedIdTypes";
 
 
-export interface payloadLikedId{
- id:number;
+export const AddLikePhoto = (payload:number) => {
+    return ({type: likedIdTypes.NEW_LIKED_ID, payload})
 }
-
-export const addLikedId = (payload:payloadLikedId) => {
-    return{
-        type:NEW_BACKGROUND,
-        payload
-    }
-}
-
-export const deleteLikedId = (payload:payloadLikedId) => {
-    return{
-        type:NEW_BACKGROUND,
-        payload
-    }
-}
+export const DeleteLikePhoto = (payload:number[]) => ({type:likedIdTypes.DELETE_LIKED_ID, payload})

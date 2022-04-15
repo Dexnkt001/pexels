@@ -5,7 +5,7 @@ import React, {ReactChild, ReactChildren} from 'react';
  import add from '../icons/add.png';
 import {useTypedSelector} from "../useTypedSelector";
 import {useDispatch} from "react-redux";
-import {AddLikePhoto, DeleteLikePhoto} from "../redux/reducer/likedIdReducer";
+import {AddLikePhoto, DeleteLikePhoto} from "../redux/actions/likedId_actions";
 
 
 interface Photos{
@@ -59,20 +59,17 @@ interface photoElement{
            return   <img onClick={()=>{dispatch(deleteLiked(key))}} className='icons_actions_photo liked' style={{background:'rgba(255,255,255,1)'}} src={likeIcon} alt="" key={key}/>
          }else{
          return     <img onClick={()=>{
-             console.log('add id : ', key)
              dispatch(AddLikePhoto(key))}} className='icons_actions_photo' src={likeIcon} alt="" key={key}/>
          }}
      }
 
      const saveUrlAsFile = async (href:string, fileName:string)=>{
-         console.log(href)
          const res = await fetch(href);
          const data = await res.blob();
          const photo = URL.createObjectURL(data);
          const link = document.createElement("a");
          link.setAttribute("href", photo);
          link.setAttribute("download", `${fileName}.jpg`);
-         console.log(photo)
          link.click();
          URL.revokeObjectURL(photo);
      }

@@ -1,33 +1,8 @@
-import { PictureCategoryAction, PicturesCategoryActionTypes} from "../../types/categoryTypes";
-
-export interface payloadCategoryFetch{
-    count_pict:number;
-    pictures:any[];
-}
+import {IPictures, PicturesCategoryActionTypes} from "../../types/categoryTypes";
 
 export interface payloadCategoryFetchMore{
     count_pict:number;
-    pictures:any[];
-}
-
-
-export const FetchPicturesCategoryAction = () : PictureCategoryAction =>{
-    return{
-        type: PicturesCategoryActionTypes.FETCH_CATEGORY_PICTURES
-    }
-}
-
-export const ClearPicturesCategoryAction = () : PictureCategoryAction =>{
-    return{
-        type: PicturesCategoryActionTypes.FETCH_CATEGORY_PICTURES
-    }
-}
-
-export const FetchPicturesCategorySuccessAction = (payload:payloadCategoryFetch) => {
-    return{
-        type:PicturesCategoryActionTypes.FETCH_CATEGORY_PICTURES_SUCCESS,
-        payload
-    }
+    pictures:IPictures[];
 }
 
 
@@ -38,8 +13,13 @@ export const FetchMorePicturesCategorySuccessAction = (payload:payloadCategoryFe
     }
 }
 
-export const FetchPicturesErrorAction = () => {
-    return{
-        type:PicturesCategoryActionTypes.FETCH_CATEGORY_PICTURES_ERROR
-    }
-}
+
+export const fetchPicturesCategoryCreator = () => ({type:PicturesCategoryActionTypes.FETCH_CATEGORY_PICTURES})
+export const NewCategoryCreator = (payload:string) => ({type:PicturesCategoryActionTypes.NEW_CATEGORY, payload})
+export const ClearCategoryCreator = () => ({type:PicturesCategoryActionTypes.CLEAR_PICTURES_CATEGORY})
+export const NewSizeCategoryCreator = (payload:string) => ({type:PicturesCategoryActionTypes.NEW_SIZE, payload})
+export const NewOrientationCategoryCreator = (payload:string) => ({type:PicturesCategoryActionTypes.NEW_ORIENTATION, payload})
+export const CategoryLIstCreator = (payload:string[]) => ({type:PicturesCategoryActionTypes.CATEGORY_LIST, payload})
+export const DeleteOrientationCreator = () => ({type:PicturesCategoryActionTypes.DELETE_ORIENTATION})
+export const DeleteSizeCreator = () => ({type:PicturesCategoryActionTypes.DELETE_SIZE})
+export const AsyncMorePicturesCategoryCreator = () => ({type:PicturesCategoryActionTypes.ASYNC_CATEGORY_MORE_PICTURES})

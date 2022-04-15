@@ -1,4 +1,4 @@
-export interface initLikedId{
+export interface IInitLikedId{
     likedId:number[]
 }
 
@@ -8,14 +8,14 @@ export enum likedIdTypes{
 }
 
 
- interface NewLikedIdAction{
+ interface INewLikedIdAction{
     type:typeof likedIdTypes.NEW_LIKED_ID;
     payload:number
 }
 
-interface DeleteLikedIdAction{
+interface IDeleteLikedIdAction{
     type:typeof likedIdTypes.DELETE_LIKED_ID;
     payload: number[]
 }
 
-export type enumLikedIdTypes  = NewLikedIdAction | DeleteLikedIdAction
+export type enumLikedIdTypes  = INewLikedIdAction | IDeleteLikedIdAction
