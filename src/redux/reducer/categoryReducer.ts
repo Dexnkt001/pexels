@@ -1,7 +1,7 @@
-import {PictereCategoryState, PictureCategoryAction, PicturesCategoryActionTypes} from "../../types/categoryTypes";
+import {IPictereCategoryState, PictureCategoryAction, PicturesCategoryActionTypes} from "../../types/categoryTypes";
 
 
-const initialState:PictereCategoryState = {
+const initialState:IPictereCategoryState = {
     category:'',
     pictures:[],
     category_list:[],
@@ -12,7 +12,7 @@ const initialState:PictereCategoryState = {
     error : null,
 }
 
-export const categoryReducer = (state = initialState, action:PictureCategoryAction):PictereCategoryState => {
+export const categoryReducer = (state = initialState, action:PictureCategoryAction):IPictereCategoryState => {
     switch (action.type){
         case PicturesCategoryActionTypes.FETCH_CATEGORY_PICTURES: return {
             category:state.category,

@@ -1,5 +1,30 @@
+export interface  ISrcType {
+    landscape: string;
+    large: string;
+    large2x: string;
+    medium: string;
+    original: string;
+    portrait: string;
+    small: string;
+    tiny: string;
+}
+
+interface IPictures {
+    alt: string;
+    avg_color: string;
+    height: number;
+    id: number;
+    liked: boolean;
+    photographer: string;
+    photographer_id: number;
+    photographer_url: string;
+    src:ISrcType;
+    url: string;
+    width: number
+}
+
 export interface PictereState {
-    pictures:any[];
+    pictures:IPictures[];
     count_pict:number;
     loading : boolean;
     error : null | string;

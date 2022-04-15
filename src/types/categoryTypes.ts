@@ -1,6 +1,22 @@
-export interface PictereCategoryState {
+import {ISrcType} from "./pictures";
+
+export interface IPictures{
+    alt: string;
+    avg_color: string;
+    height: number;
+    id: number;
+    liked: boolean;
+    photographer: string;
+    photographer_id: number;
+    photographer_url: string;
+    src:ISrcType;
+    url: string;
+    width: number
+}
+
+export interface IPictereCategoryState {
     category:string;
-    pictures:any[];
+    pictures:IPictures[];
     category_list:string[];
     count_pict:number;
     loading : boolean;
@@ -25,30 +41,30 @@ export enum PicturesCategoryActionTypes{
     DELETE_SIZE='DELETE_SIZE'
 }
 
-interface CategoryList{
+interface ICategoryList{
     type:PicturesCategoryActionTypes.CATEGORY_LIST;
     payload:string[]
 }
 
-interface NewSize{
+interface INewSize{
     type:PicturesCategoryActionTypes.NEW_ORIENTATION;
     payload:string
 }
 
-interface NewOrientation{
+interface INewOrientation{
     type:PicturesCategoryActionTypes.NEW_SIZE;
     payload:string
 }
 
-interface FetchPicturesCategoryAction{
+interface IFetchPicturesCategoryAction{
     type:PicturesCategoryActionTypes.FETCH_CATEGORY_PICTURES;
 }
 
-interface ClearPicturesCategoryAction{
+interface IClearPicturesCategoryAction{
     type:PicturesCategoryActionTypes.CLEAR_PICTURES_CATEGORY;
 }
 
-interface FetchMorePicturesCategorySuccess{
+interface IFetchMorePicturesCategorySuccess{
     type:PicturesCategoryActionTypes.FETCH_CATEGORY_MORE_PICTURES_SUCCESS;
     payload:{
         pictures:any[],
@@ -56,20 +72,20 @@ interface FetchMorePicturesCategorySuccess{
     }
 }
 
-interface NewCategory{
+interface INewCategory{
     type:PicturesCategoryActionTypes.NEW_CATEGORY;
     payload:string
 }
 
-interface DeleteOrientation{
+interface IDeleteOrientation{
     type:PicturesCategoryActionTypes.DELETE_ORIENTATION;
 }
 
-interface DeleteSize{
+interface IDeleteSize{
     type:PicturesCategoryActionTypes.DELETE_SIZE;
 }
 
-interface FetchPicturesCategorySuccessAction{
+interface IFetchPicturesCategorySuccessAction{
     type: PicturesCategoryActionTypes.FETCH_CATEGORY_PICTURES_SUCCESS;
     payload:{
         pictures:any[],
@@ -77,20 +93,20 @@ interface FetchPicturesCategorySuccessAction{
     }
 }
 
-interface FetchPicturesCategoryErrorAction{
+interface IFetchPicturesCategoryErrorAction{
     type:PicturesCategoryActionTypes.FETCH_CATEGORY_PICTURES_ERROR;
     payload:string
 }
 
-interface AsyncPicturesCategoryAction{
+interface IAsyncPicturesCategoryAction{
     type:PicturesCategoryActionTypes.ASYNC_CATEGORY_PICTURES
 }
 
-interface AsyncMorePicturesCategoryAction{
+interface IAsyncMorePicturesCategoryAction{
     type:PicturesCategoryActionTypes.ASYNC_CATEGORY_MORE_PICTURES;
 }
 
-export type PictureCategoryAction = FetchPicturesCategoryAction | FetchPicturesCategorySuccessAction |
-    FetchPicturesCategoryErrorAction | AsyncPicturesCategoryAction |
-    FetchMorePicturesCategorySuccess | AsyncMorePicturesCategoryAction |
-    NewCategory | ClearPicturesCategoryAction|NewSize|NewOrientation | CategoryList | DeleteOrientation | DeleteSize
+export type PictureCategoryAction = IFetchPicturesCategoryAction | IFetchPicturesCategorySuccessAction |
+    IFetchPicturesCategoryErrorAction | IAsyncPicturesCategoryAction |
+    IFetchMorePicturesCategorySuccess | IAsyncMorePicturesCategoryAction |
+    INewCategory | IClearPicturesCategoryAction|INewSize|INewOrientation | ICategoryList | IDeleteOrientation | IDeleteSize
