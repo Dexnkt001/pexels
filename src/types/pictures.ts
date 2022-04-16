@@ -32,12 +32,10 @@ export interface IPictereState {
 
 export enum PicturesActionTypes{
     FETCH_PICTURES = 'FETCH_PICTURES',
-    FETCH_PICTURES_SUCCESS = 'FETCH_PICTURES_SUCCESS',
     FETCH_PICTURES_ERROR = 'FETCH_PICTURES_ERROR',
     ASYNC_PICTURES = 'ASYNC_PICTURES',
     FETCH_MORE_PICTURES_SUCCESS = 'FETCH_MORE_PICTURES_SUCCESS',
     ASYNC_MORE_PICTURES = "ASYNC_MORE_PICTURES",
-    LIKE_PHOTO ='LIKE_PHOTO'
 }
 
 interface IFetchPicturesAction{
@@ -47,23 +45,15 @@ interface IFetchPicturesAction{
 interface IFetchMorePicturesSuccess{
     type:PicturesActionTypes.FETCH_MORE_PICTURES_SUCCESS;
     payload:{
-        pictures:any[],
+        pictures:IPictures[],
         count_pict:number
     }
 }
 
-interface IFetchPicturesSuccessAction{
-    type: PicturesActionTypes.FETCH_PICTURES_SUCCESS;
-    payload:{
-        pictures:any[],
-        count_pict:number,
-    }
-}
-
-interface ILikeAction{
-    type: PicturesActionTypes.LIKE_PHOTO;
-    payload:any[]
-}
+// interface ILikeAction{
+//     type: PicturesActionTypes.LIKE_PHOTO;
+//     payload:number[]
+// }
 
 interface IFetchPicturesErrorAction{
     type:PicturesActionTypes.FETCH_PICTURES_ERROR;
@@ -78,4 +68,4 @@ interface IAsyncMorePicturesAction{
     type:PicturesActionTypes.ASYNC_MORE_PICTURES
 }
 
-export type PictureAction = IFetchPicturesAction | IFetchPicturesSuccessAction | IFetchPicturesErrorAction | IAsyncPicturesAction |  IFetchMorePicturesSuccess | IAsyncMorePicturesAction | ILikeAction
+export type PictureAction = IFetchPicturesAction | IFetchPicturesErrorAction | IAsyncPicturesAction |  IFetchMorePicturesSuccess | IAsyncMorePicturesAction

@@ -15,21 +15,17 @@ export const galleryReducer = (state = initialState, action:PictureAction):IPict
       pictures:state.pictures,
       count_pict: state.count_pict,
     }
-    case PicturesActionTypes.FETCH_PICTURES_SUCCESS: return {loading:false,
-      error:null,
-      pictures:action.payload.pictures,
-      count_pict:action.payload.count_pict,
-    }
-    case PicturesActionTypes.FETCH_PICTURES_ERROR: return {loading:false,
-      error:action.payload,
-      pictures:[],
-      count_pict: state.count_pict,
-    }
     case PicturesActionTypes.FETCH_MORE_PICTURES_SUCCESS : return {
       loading:false,
       error:null,
       pictures:[...state.pictures, ...action.payload.pictures],
       count_pict: action.payload.count_pict,
+    }
+    case PicturesActionTypes.FETCH_PICTURES_ERROR : return {
+      loading:false,
+      error:action.payload,
+      pictures:state.pictures,
+      count_pict: state.count_pict,
     }
     default : return state
   }

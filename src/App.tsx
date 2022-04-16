@@ -1,6 +1,5 @@
 import React, {useEffect, Suspense} from 'react';
 import './App.css';
-import {useTypedSelector} from "./useTypedSelector";
 import {useDispatch} from "react-redux";
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import Main from "./pages/Main";
@@ -9,7 +8,6 @@ import {CategoryLIstCreator} from "./redux/actions/category_actions";
 import {AsyncPicturesCreator} from "./redux/actions/gallery_actions";
 
 const App:React.FC = () => {
-    const state = useTypedSelector(state=>state)
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(AsyncPicturesCreator())

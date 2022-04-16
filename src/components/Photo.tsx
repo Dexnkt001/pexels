@@ -8,31 +8,17 @@ import {useDispatch} from "react-redux";
 import {AddLikePhoto, DeleteLikePhoto} from "../redux/actions/likedId_actions";
 
 
-interface Photos{
+interface IPhotos{
     mainPhoto:string;
     namePhotographer:string;
     alt:string;
     urlPhotographer:string;
     idPhoto:number;
-    original:string;
     children?:ReactChild| React.ReactNode
 }
 
-interface photoElement{
-    alt:string;
-    avg_color:string;
-    height: number;
-    id: number;
-    liked: boolean;
-    photographer: string;
-    photographer_id: number;
-    photographer_url: string;
-    src:object;
-    url: string;
-    width: number
-}
 
- const Photo:React.FC<Photos> = ({idPhoto, mainPhoto,original, namePhotographer, alt,urlPhotographer}) => {
+ const Photo:React.FC<IPhotos> = ({idPhoto, mainPhoto, namePhotographer, alt,urlPhotographer}) => {
 
      const state = useTypedSelector(state=>{
              return {
@@ -63,15 +49,10 @@ interface photoElement{
          }}
      }
 
-     const saveUrlAsFile = async (href:string, fileName:string)=>{
-         const res = await fetch(href);
-         const data = await res.blob();
-         const photo = URL.createObjectURL(data);
+     const saveUrlAsFile = async (photoId:number)=>{
          const link = document.createElement("a");
-         link.setAttribute("href", photo);
-         link.setAttribute("download", `${fileName}.jpg`);
+         link.setAttribute("href", `https://www.pexels.com/photo/${photoId}/download`);
          link.click();
-         URL.revokeObjectURL(photo);
      }
 
      return (
@@ -83,7 +64,7 @@ interface photoElement{
                      <span className='name_photographer'>{namePhotographer}</span>
                  </a>
                  <div className='action_photo'>
-                    <img onClick={()=>{saveUrlAsFile(original,alt)}} className='icons_actions_photo' src={load} alt="lol"/>
+                    <img onClick={()=>{saveUrlAsFile(idPhoto)}} className='icons_actions_photo' src={load} alt="lol"/>
                      <img className='icons_actions_photo' src={add} alt="lol"/>
                      {likeFun(idPhoto)}
                  </div>

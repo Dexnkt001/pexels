@@ -23,3 +23,4 @@ export const CategoryLIstCreator = (payload:string[]) => ({type:PicturesCategory
 export const DeleteOrientationCreator = () => ({type:PicturesCategoryActionTypes.DELETE_ORIENTATION})
 export const DeleteSizeCreator = () => ({type:PicturesCategoryActionTypes.DELETE_SIZE})
 export const AsyncMorePicturesCategoryCreator = () => ({type:PicturesCategoryActionTypes.ASYNC_CATEGORY_MORE_PICTURES})
+export const ErrorCreator = (payload:string) => ({type:PicturesCategoryActionTypes.FETCH_CATEGORY_PICTURES_ERROR,payload})

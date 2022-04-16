@@ -1,6 +1,6 @@
 import {put, takeEvery, call} from "redux-saga/effects";
 import {PicturesActionTypes} from "../types/pictures";
-import {FetchMorePicturesSuccessAction} from "../redux/actions/gallery_actions";
+import {ErrorCreator, FetchMorePicturesSuccessAction} from "../redux/actions/gallery_actions";
 import {select} from "typed-redux-saga";
 import {fetchBackground} from "../redux/actions/background_actions";
 
@@ -51,11 +51,14 @@ function* getPicturesWorker(){
 }
 
 function* getMorePicturesWorker(){
-    const count:number = yield select(state => state.gallery.count_pict)
-    const data:picts= yield call(getMorePicturesAction, api_key,count+20)
-    let photos = data.photos.length === 20 ? data.photos : data.photos.slice(19)
+    try{
+        const count:number = yield select(state => state.gallery.count_pict)
+        const data:picts= yield call(getMorePicturesAction, api_key,count+20)
+        let photos = data.photos.length === 20 ? data.photos : data.photos.slice(19)
         yield put(FetchMorePicturesSuccessAction({count_pict:photos.length, pictures:photos}))
-
+    }catch (e) {
+        yield put(ErrorCreator("Error"))
+    }
 }
 
 export function* picturesWatcher(){

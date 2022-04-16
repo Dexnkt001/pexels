@@ -2,6 +2,7 @@ import {put, takeEvery, call} from "redux-saga/effects";
 import {PicturesCategoryActionTypes} from "../types/categoryTypes";
 import {select} from "typed-redux-saga";
 import {
+    ErrorCreator,
     FetchMorePicturesCategorySuccessAction,
 } from "../redux/actions/category_actions";
 
@@ -50,11 +51,15 @@ interface ICategoryData{
 
 
 function* getMoreCategoryPicturesWorker(){
-    const categoryData:ICategoryData = yield select(state => state.category)
-    const data:IPicts= yield call(getMoreCategoryPicturesAction, api_key,categoryData.count_pict+20,categoryData.category,
-        categoryData.size, categoryData.orientation)
-    let photos = data.photos.length === 20 ? data.photos : data.photos.slice(19)
-    yield put(FetchMorePicturesCategorySuccessAction({count_pict:categoryData.count_pict + photos.length, pictures:photos}))
+    try{
+        const categoryData:ICategoryData = yield select(state => state.category)
+        const data:IPicts= yield call(getMoreCategoryPicturesAction, api_key,categoryData.count_pict+20,categoryData.category,
+            categoryData.size, categoryData.orientation)
+        let photos = data.photos.length === 20 ? data.photos : data.photos.slice(19)
+        yield put(FetchMorePicturesCategorySuccessAction({count_pict:categoryData.count_pict + photos.length, pictures:photos}))
+    }catch (e) {
+        yield put(ErrorCreator("Error"))
+    }
 }
 
 export function* picturesCategoryWatcher(){

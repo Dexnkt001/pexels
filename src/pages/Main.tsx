@@ -13,6 +13,7 @@ const Main:React.FC = () => {
 
     const markPhoto = useRef<HTMLDivElement>(null);
 
+console.log(state)
 
     const dispatch = useDispatch();
 
@@ -30,7 +31,7 @@ const Main:React.FC = () => {
 
     }, [])
 
-    const loading = () =>{
+     function loading(){
         if(state.gallery.loading){
             return   <Loading />
         }else return

@@ -24,16 +24,6 @@ export const categoryReducer = (state = initialState, action:PictureCategoryActi
             pictures:state.pictures,
             count_pict: state.count_pict,
         }
-        case PicturesCategoryActionTypes.FETCH_CATEGORY_PICTURES_SUCCESS: return {
-            category:state.category,
-            orientation:state.orientation,
-            size: state.size,
-            category_list: state.category_list,
-            loading:false,
-            error:null,
-            pictures:action.payload.pictures,
-            count_pict:action.payload.count_pict,
-        }
         case PicturesCategoryActionTypes.FETCH_CATEGORY_PICTURES_ERROR: return {
             category:state.category,
             orientation:state.orientation,
@@ -41,7 +31,7 @@ export const categoryReducer = (state = initialState, action:PictureCategoryActi
             category_list: state.category_list,
             loading:false,
             error:action.payload,
-            pictures:[],
+            pictures:state.pictures,
             count_pict: state.count_pict,
         }
         case PicturesCategoryActionTypes.FETCH_CATEGORY_MORE_PICTURES_SUCCESS : return {

@@ -21,7 +21,6 @@ const Category:React.FC = () => {
     const state = useTypedSelector(state=>state)
     const { category } = useParams();
 
-
     const markPhoto = useRef<HTMLDivElement>(null);
 
 
@@ -43,7 +42,7 @@ const Category:React.FC = () => {
         return ()=>{observer.unobserve(current)}
     }, [category])
 
-    const loading = () =>{
+    function loading(){
         if(state.category.loading){
             return   <Loading />
         }else return

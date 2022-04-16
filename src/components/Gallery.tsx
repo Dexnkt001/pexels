@@ -32,7 +32,7 @@
          let pictures = []
          {for(let i = start; i<gallery.pictures.length;i+=4){
              pictures.push(
-               <Photo key={gallery.pictures[i].id} idPhoto={gallery.pictures[i].id} mainPhoto={gallery.pictures[i]['src'].large} original={gallery.pictures[i]['src'].original} namePhotographer={gallery.pictures[i]['photographer']} alt={gallery.pictures[i].alt} urlPhotographer={gallery.pictures[i].photographer_url}/>
+               <Photo key={gallery.pictures[i].id} idPhoto={gallery.pictures[i].id} mainPhoto={gallery.pictures[i]['src'].large} namePhotographer={gallery.pictures[i]['photographer']} alt={gallery.pictures[i].alt} urlPhotographer={gallery.pictures[i].photographer_url}/>
              )
          }}
          return pictures
