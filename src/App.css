@@ -61,6 +61,10 @@ width: 80%;
     color: white;
 }
 
+.header_nav svg{
+    margin-left: 10px;
+}
+
 .top_header a{
    display: flex;
     height: 40px;
@@ -72,7 +76,7 @@ width: 80%;
     cursor: pointer;
 }
 
-.top_header a span{
+.top_header a span, .fixed_left_header a span{
     margin-left: 1rem;
 }
 
@@ -85,7 +89,7 @@ width: 80%;
 }
 
 .top_header a:hover span{
-    color: gray;
+    opacity: 0.8;
 }
 
 .main_navigation{
@@ -271,7 +275,7 @@ form button svg, form button svg path{
 
 .search_ideas ul li{
     display: inline;
-    opacity: 0.8;
+    opacity: 1;
     list-style: none;
     margin-left: 5px;
     font-size: 14px;

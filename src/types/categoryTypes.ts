@@ -17,7 +17,6 @@ export interface IPictures{
 export interface IPictereCategoryState {
     category:string;
     pictures:IPictures[];
-    category_list:string[];
     count_pict:number;
     loading : boolean;
     orientation:string;
@@ -36,15 +35,10 @@ export enum PicturesCategoryActionTypes{
     CLEAR_PICTURES_CATEGORY='CLEAR_PICTURES_CATEGORY',
     NEW_ORIENTATION = 'NEW_ORIENTATION',
     NEW_SIZE = 'NEW_SIZE',
-    CATEGORY_LIST='CATEGORY_LIST',
     DELETE_ORIENTATION='DELETE_ORIENTATION',
     DELETE_SIZE='DELETE_SIZE'
 }
 
-interface ICategoryList{
-    type:PicturesCategoryActionTypes.CATEGORY_LIST;
-    payload:string[]
-}
 
 interface INewSize{
     type:PicturesCategoryActionTypes.NEW_ORIENTATION;
@@ -109,4 +103,4 @@ interface IAsyncMorePicturesCategoryAction{
 export type PictureCategoryAction = IFetchPicturesCategoryAction | IFetchPicturesCategorySuccessAction |
     IFetchPicturesCategoryErrorAction | IAsyncPicturesCategoryAction |
     IFetchMorePicturesCategorySuccess | IAsyncMorePicturesCategoryAction |
-    INewCategory | IClearPicturesCategoryAction|INewSize|INewOrientation | ICategoryList | IDeleteOrientation | IDeleteSize
+    INewCategory | IClearPicturesCategoryAction|INewSize|INewOrientation | IDeleteOrientation | IDeleteSize

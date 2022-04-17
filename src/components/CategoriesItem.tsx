@@ -1,6 +1,5 @@
-import React, {ReactNode} from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
-import {useDispatch} from "react-redux";
 
 
 interface CategoriesItemType{
@@ -10,11 +9,9 @@ interface CategoriesItemType{
 
 const CategoriesItem = ({element, index}:CategoriesItemType) => {
 
-    const dispatch = useDispatch();
 
     return (
-        <li onClick={()=>{
-        }}><Link to={`/about/${element}`}>{element}</Link>{index === 6? "." : ','}</li>
+        <li><Link to={`/about/${element}`}>{element}</Link>{index === 6? "." : ','}</li>
     );
 };
 

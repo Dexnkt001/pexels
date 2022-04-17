@@ -19,7 +19,6 @@ export const NewCategoryCreator = (payload:string) => ({type:PicturesCategoryAct
 export const ClearCategoryCreator = () => ({type:PicturesCategoryActionTypes.CLEAR_PICTURES_CATEGORY})
 export const NewSizeCategoryCreator = (payload:string) => ({type:PicturesCategoryActionTypes.NEW_SIZE, payload})
 export const NewOrientationCategoryCreator = (payload:string) => ({type:PicturesCategoryActionTypes.NEW_ORIENTATION, payload})
-export const CategoryLIstCreator = (payload:string[]) => ({type:PicturesCategoryActionTypes.CATEGORY_LIST, payload})
 export const DeleteOrientationCreator = () => ({type:PicturesCategoryActionTypes.DELETE_ORIENTATION})
 export const DeleteSizeCreator = () => ({type:PicturesCategoryActionTypes.DELETE_SIZE})
 export const AsyncMorePicturesCategoryCreator = () => ({type:PicturesCategoryActionTypes.ASYNC_CATEGORY_MORE_PICTURES})

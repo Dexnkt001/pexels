@@ -4,7 +4,6 @@ import {IPictereCategoryState, PictureCategoryAction, PicturesCategoryActionType
 const initialState:IPictereCategoryState = {
     category:'',
     pictures:[],
-    category_list:[],
     count_pict:0,
     loading : false,
     orientation:'',
@@ -18,7 +17,6 @@ export const categoryReducer = (state = initialState, action:PictureCategoryActi
             category:state.category,
             orientation:state.orientation,
             size: state.size,
-            category_list: state.category_list,
             loading:true,
             error:null,
             pictures:state.pictures,
@@ -28,7 +26,6 @@ export const categoryReducer = (state = initialState, action:PictureCategoryActi
             category:state.category,
             orientation:state.orientation,
             size: state.size,
-            category_list: state.category_list,
             loading:false,
             error:action.payload,
             pictures:state.pictures,
@@ -38,7 +35,6 @@ export const categoryReducer = (state = initialState, action:PictureCategoryActi
             category:state.category,
             orientation:state.orientation,
             size: state.size,
-            category_list: state.category_list,
             loading:false,
             error:null,
             pictures:[...state.pictures, ...action.payload.pictures],
@@ -48,7 +44,6 @@ export const categoryReducer = (state = initialState, action:PictureCategoryActi
             category:action.payload,
             orientation:state.orientation,
             size: state.size,
-            category_list: state.category_list,
             loading:false,
             error:null,
             pictures:[],
@@ -57,7 +52,6 @@ export const categoryReducer = (state = initialState, action:PictureCategoryActi
         case PicturesCategoryActionTypes.CLEAR_PICTURES_CATEGORY : return {
             category:'',
             orientation:'',
-            category_list: state.category_list,
             size: '',
             pictures:[],
             count_pict:0,
@@ -67,7 +61,6 @@ export const categoryReducer = (state = initialState, action:PictureCategoryActi
         case PicturesCategoryActionTypes.NEW_SIZE : return {
             category:state.category,
             orientation:state.orientation,
-            category_list: state.category_list,
             size: action.payload,
             pictures:[],
             count_pict:0,
@@ -77,17 +70,6 @@ export const categoryReducer = (state = initialState, action:PictureCategoryActi
         case PicturesCategoryActionTypes.NEW_ORIENTATION : return {
             category:state.category,
             orientation:action.payload,
-            category_list: state.category_list,
-            size: state.size,
-            pictures:[],
-            count_pict:0,
-            loading : false,
-            error : null,
-        }
-        case PicturesCategoryActionTypes.CATEGORY_LIST : return {
-            category:state.category,
-            orientation:state.orientation,
-            category_list:action.payload,
             size: state.size,
             pictures:[],
             count_pict:0,
@@ -97,7 +79,6 @@ export const categoryReducer = (state = initialState, action:PictureCategoryActi
         case PicturesCategoryActionTypes.DELETE_ORIENTATION : return {
             category:state.category,
             orientation:'',
-            category_list:state.category_list,
             size: state.size,
             pictures:[],
             count_pict:0,
@@ -107,7 +88,6 @@ export const categoryReducer = (state = initialState, action:PictureCategoryActi
         case PicturesCategoryActionTypes.DELETE_SIZE : return {
             category:state.category,
             orientation:state.orientation,
-            category_list:state.category_list,
             size: '',
             pictures:[],
             count_pict:0,

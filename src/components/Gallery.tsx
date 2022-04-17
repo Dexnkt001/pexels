@@ -44,7 +44,6 @@
                  <h3>{t("gallery.photos")}</h3>
                  <div className='flex_container_for_photos'>
                      <div className='item_flex_container'>
-                         {/*{gallery.pictures.}*/}
                          {column(0)}
                      </div>
                      <div className='item_flex_container'>
