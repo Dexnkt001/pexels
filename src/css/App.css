@@ -69,6 +69,18 @@ body {
   }
 }
 
+.free_stock_photo{
+    display: flex;
+    width: 98%;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.free_stock_photo h3.free_stock_photo h4{
+    display: inline;
+}
+
 
 
 

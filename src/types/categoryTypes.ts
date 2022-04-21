@@ -60,7 +60,7 @@ interface IClearPicturesCategoryAction {
 interface IFetchMorePicturesCategorySuccess {
   type: PicturesCategoryActionTypes.FETCH_CATEGORY_MORE_PICTURES_SUCCESS;
   payload: {
-    pictures: any[];
+    pictures: IPictures[];
     count_pict: number;
   };
 }
@@ -78,22 +78,22 @@ interface IDeleteSize {
   type: PicturesCategoryActionTypes.DELETE_SIZE;
 }
 
-interface IFetchPicturesCategorySuccessAction {
-  type: PicturesCategoryActionTypes.FETCH_CATEGORY_PICTURES_SUCCESS;
-  payload: {
-    pictures: any[];
-    count_pict: number;
-  };
-}
+// interface IFetchPicturesCategorySuccessAction {
+//   type: PicturesCategoryActionTypes.FETCH_CATEGORY_PICTURES_SUCCESS;
+//   payload: {
+//     pictures: IPictures[];
+//     count_pict: number;
+//   };
+// }
 
 interface IFetchPicturesCategoryErrorAction {
   type: PicturesCategoryActionTypes.FETCH_CATEGORY_PICTURES_ERROR;
   payload: string;
 }
 
-interface IAsyncPicturesCategoryAction {
-  type: PicturesCategoryActionTypes.ASYNC_CATEGORY_PICTURES;
-}
+// interface IAsyncPicturesCategoryAction {
+//   type: PicturesCategoryActionTypes.ASYNC_CATEGORY_PICTURES;
+// }
 
 interface IAsyncMorePicturesCategoryAction {
   type: PicturesCategoryActionTypes.ASYNC_CATEGORY_MORE_PICTURES;
@@ -101,9 +101,9 @@ interface IAsyncMorePicturesCategoryAction {
 
 export type PictureCategoryAction =
   | IFetchPicturesCategoryAction
-  | IFetchPicturesCategorySuccessAction
+  //| IFetchPicturesCategorySuccessAction
   | IFetchPicturesCategoryErrorAction
-  | IAsyncPicturesCategoryAction
+  // | IAsyncPicturesCategoryAction
   | IFetchMorePicturesCategorySuccess
   | IAsyncMorePicturesCategoryAction
   | INewCategory

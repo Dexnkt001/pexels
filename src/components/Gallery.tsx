@@ -43,7 +43,6 @@ const Gallery = ({ req }: request) => {
     if (gallery.pictures.length !== 0) {
       return (
         <>
-          <h3>{t("gallery.photos")}</h3>
           <div className="flex_container_for_photos">
             <div className="item_flex_container">{column(0)}</div>
             <div className="item_flex_container">{column(1)}</div>

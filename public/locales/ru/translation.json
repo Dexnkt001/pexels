@@ -18,7 +18,8 @@
     "challenges": "Челенджи"
   },
   "gallery": {
-    "photos": "Бесплатные стоковые фото"
+    "photos": "Бесплатные стоковые фото",
+    "trending":"Тенденции"
   },
   "category_functions": {
     "photos": "Фотографии",

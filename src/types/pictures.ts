@@ -50,11 +50,6 @@ interface IFetchMorePicturesSuccess {
   };
 }
 
-// interface ILikeAction{
-//     type: PicturesActionTypes.LIKE_PHOTO;
-//     payload:number[]
-// }
-
 interface IFetchPicturesErrorAction {
   type: PicturesActionTypes.FETCH_PICTURES_ERROR;
   payload: string;

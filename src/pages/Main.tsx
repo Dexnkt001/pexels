@@ -10,9 +10,12 @@ import {
   AsyncMorePicturesCreator,
   fetchPicturesCreator,
 } from "../redux/actions/gallery_actions";
+import {useTranslation} from "react-i18next";
 
 const Main: React.FC = () => {
   const state = useTypedSelector((state) => state);
+
+    const { t } = useTranslation();
 
   const markPhoto = useRef<HTMLDivElement>(null);
 
@@ -43,6 +46,7 @@ const Main: React.FC = () => {
     <>
       <Header />
       <Navigation />
+        <div className="free_stock_photo"><h3>{t("gallery.photos")}</h3><h4>{t("gallery.trending")}</h4></div>
       <Gallery req={"gallery"} />
       <div ref={markPhoto} className="more_photo"></div>
       {loading()}

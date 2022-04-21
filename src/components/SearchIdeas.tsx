@@ -58,7 +58,7 @@ const SearchIdeas: React.FC = () => {
     let sevenСategories: string[] = [];
 
     while (sevenСategories.length !== 7) {
-      let index = Math.ceil(Math.random() * 39);
+      let index = Math.round(Math.random() * 39);
       if (!sevenСategories.some((element) => element === categories[index])) {
         sevenСategories.push(categories[index]);
       }
