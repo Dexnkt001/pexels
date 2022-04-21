@@ -1,5 +1,5 @@
 import React, { useEffect, Suspense } from "react";
-import "./App.css";
+import "./css/App.css";
 import { useDispatch } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "./pages/Main";
@@ -11,7 +11,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     dispatch(AsyncPicturesCreator());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Suspense fallback={"Loading ..."}>

@@ -32,7 +32,7 @@ const Main: React.FC = () => {
     );
     observer.observe(markPhoto.current as unknown as Element);
     dispatch(ClearCategoryCreator());
-  }, []);
+  }, [dispatch]);
 
   function loading() {
     if (state.gallery.loading) {

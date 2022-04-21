@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import "../categor_style.css";
+import "../css/categorStyle.css";
 import Gallery from "../components/Gallery";
 import { useTypedSelector } from "../useTypedSelector";
 import Loading from "../components/Loading";
@@ -35,12 +35,11 @@ const Category: React.FC = () => {
       }
     );
     observer.observe(markPhoto.current as unknown as Element);
-    console.log("lol");
     dispatch(NewCategoryCreator(category as string));
     return () => {
       observer.unobserve(current);
     };
-  }, [category, state.orientation, state.size]);
+  }, [category, state.orientation, state.size, dispatch]);
 
   function loading() {
     if (state.loading) {

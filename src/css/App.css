@@ -1,0 +1,74 @@
+* {
+  font-family: -apple-system, BlinkMacSystemFont, segoe ui, roboto, oxygen,
+    cantarell, helvetica neue, ubuntu, sans-serif;
+  cursor: default;
+}
+
+#root {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.loading_cont{
+  overflow: hidden;
+  position: relative;
+  height: 40px;
+  width: 100%;
+  margin-top: 15px;
+  display: flex;
+}
+
+.loading_cont span{
+  background-color: #2d2d2d;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  animation: animat 2.5s infinite cubic-bezier(0.2, 0.6, 0.8, 0.2);
+}
+
+
+
+.loading_cont span:nth-child(1) {
+   animation-delay: 0.1s;
+ }
+
+.loading_cont span:nth-child(2) {
+   animation-delay: 0.2s;
+ }
+
+.loading_cont span:nth-child(3) {
+   animation-delay: 0.3s;
+ }
+
+.loading_cont span:nth-child(4) {
+   animation-delay: 0.4s;
+ }
+
+.loading_cont span:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.more_photo{
+  position: absolute;
+  bottom: 100px;
+}
+
+@keyframes animat {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 110%;
+  }
+}
+
+
+
+

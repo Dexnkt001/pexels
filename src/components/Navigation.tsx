@@ -1,4 +1,5 @@
 import React from "react";
+import "../css/Navigation.css";
 import { useTranslation } from "react-i18next";
 
 const Navigation: React.FC = () => {

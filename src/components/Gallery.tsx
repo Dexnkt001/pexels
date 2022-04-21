@@ -1,4 +1,5 @@
 import React from "react";
+import "../css/Gallery.css";
 import { useTypedSelector } from "../useTypedSelector";
 import Photo from "./Photo";
 import { useTranslation } from "react-i18next";

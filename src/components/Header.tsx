@@ -1,11 +1,11 @@
 import React from "react";
+import "../css/Header.css";
 import MainNavigation from "./MainNavigation";
 import HeaderSearch from "./HeaderSearch";
 import { useTypedSelector } from "../useTypedSelector";
 import { useInView } from "react-intersection-observer";
 import FixedHeader from "./FixedHeader";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {
   const { t } = useTranslation();

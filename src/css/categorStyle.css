@@ -317,13 +317,13 @@ em {
   }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 880px) {
   .category_list {
     flex-direction: column;
   }
 
   .functions .category_list li {
-    width: 100px;
+    width: 130px;
     border: 1px solid #5e5e5e;
     margin: 5px 0;
     border-radius: 5px;
