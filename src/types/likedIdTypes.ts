@@ -14,7 +14,7 @@ interface INewLikedIdAction {
 
 interface IDeleteLikedIdAction {
   type: typeof likedIdTypes.DELETE_LIKED_ID;
-  payload: number[];
+  payload: number;
 }
 
 export type enumLikedIdTypes = INewLikedIdAction | IDeleteLikedIdAction;

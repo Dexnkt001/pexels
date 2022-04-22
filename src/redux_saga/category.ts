@@ -4,7 +4,7 @@ import { select } from "typed-redux-saga";
 import {
   ErrorCreator,
   FetchMorePicturesCategorySuccessAction,
-} from "../redux/actions/category_actions";
+} from "../redux/actions/categoryActions";
 
 const api_key: string = process.env.REACT_APP_API_KEY as string;
 

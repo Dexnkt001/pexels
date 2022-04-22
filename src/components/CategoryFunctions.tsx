@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useTypedSelector } from "../useTypedSelector";
 import Size from "./Size";
 import Orientation from "./Orientation";
@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import {
   DeleteOrientationCreator,
   DeleteSizeCreator,
-} from "../redux/actions/category_actions";
+} from "../redux/actions/categoryActions";
 
 const CategoryFunctions: React.FC = () => {
   const { t } = useTranslation();
@@ -17,7 +17,7 @@ const CategoryFunctions: React.FC = () => {
 
   const state = useTypedSelector((state) => state.category);
 
-  function crossOrientation() {
+  const crossOrientation = useCallback(() => {
     if (state.orientation !== "") {
       return (
         <svg
@@ -33,9 +33,9 @@ const CategoryFunctions: React.FC = () => {
         </svg>
       );
     }
-  }
+  }, [state.orientation, dispatch]);
 
-  function crossSize() {
+  const crossSize = useCallback(() => {
     if (state.size !== "") {
       return (
         <svg
@@ -51,9 +51,9 @@ const CategoryFunctions: React.FC = () => {
         </svg>
       );
     }
-  }
+  }, [state.size, dispatch]);
 
-  function orientation() {
+  const orientation = useCallback(() => {
     switch (state.orientation) {
       case "landscape":
         return <span>{t(`orientation.horizontal`)}</span>;
@@ -64,9 +64,9 @@ const CategoryFunctions: React.FC = () => {
       default:
         return <span>{t("category_functions.all_orientation")}</span>;
     }
-  }
+  }, [state.orientation, t]);
 
-  function sizeFunc() {
+  const sizeFunc = useCallback(() => {
     switch (state.size) {
       case "large":
         return <span>{t("size.large")}</span>;
@@ -77,7 +77,7 @@ const CategoryFunctions: React.FC = () => {
       default:
         return <span>{t("category_functions.all_size")}</span>;
     }
-  }
+  }, [state.size, t]);
 
   return (
     <div className="category_functions">

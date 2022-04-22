@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CategoriesItem from "./CategoriesItem";
 import { useTranslation } from "react-i18next";
+import { categories } from "../constant";
 
 const SearchIdeas: React.FC = () => {
   const { t } = useTranslation();
@@ -12,49 +13,6 @@ const SearchIdeas: React.FC = () => {
   }, []);
 
   function categoryList() {
-    const categories: string[] = [
-      "Sport",
-      "Travel",
-      "Space",
-      "Girls",
-      "Guys",
-      "People",
-      "Mountains",
-      "Nature",
-      "Houses",
-      "City",
-      "Fields",
-      "Flowers",
-      "Study",
-      "Summer",
-      "Work",
-      "Ocean",
-      "Beach",
-      "Palms",
-      "Children",
-      "Car",
-      "Street",
-      "Motorcycles",
-      "Racing",
-      "Animals",
-      "Plants",
-      "Aircraft",
-      "Meadow",
-      "Heart",
-      "Wedding",
-      "Music",
-      "Music",
-      "Design",
-      "Night",
-      "Desert",
-      "Sand",
-      "Rocks",
-      "Christmas",
-      "Food",
-      "Dark",
-      "Sky",
-    ];
-
     let sevenСategories: string[] = [];
 
     while (sevenСategories.length !== 7) {

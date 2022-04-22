@@ -11,7 +11,7 @@ import {
   AsyncMorePicturesCategoryCreator,
   fetchPicturesCategoryCreator,
   NewCategoryCreator,
-} from "../redux/actions/category_actions";
+} from "../redux/actions/categoryActions";
 
 const Category: React.FC = () => {
   const state = useTypedSelector((state) => state.category);

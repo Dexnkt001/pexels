@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Main from "./pages/Main";
 import Category from "./pages/Category";
-import { AsyncPicturesCreator } from "./redux/actions/gallery_actions";
+import { AsyncPicturesCreator } from "./redux/actions/galleryActions";
 
 const App: React.FC = () => {
   const dispatch = useDispatch();

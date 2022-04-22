@@ -1,21 +1,22 @@
-import React, { useState } from "react";
+import React, { useCallback } from "react";
 import ModalLang from "./ModalLang";
 import { useTranslation } from "react-i18next";
+import { useTypedSelector } from "../useTypedSelector";
+import { useDispatch } from "react-redux";
+import { switchLanguageCreator } from "../redux/actions/languageAction";
 
 const MainNavigation: React.FC = () => {
   const { t } = useTranslation();
 
-  const [modal, setModal] = useState(false);
+  const language = useTypedSelector((state) => state.language);
 
-  const modalActive = () => {
-    setModal(!modal);
-  };
+  const dispatch = useDispatch();
 
-  function viewModal() {
-    if (modal) {
-      return <ModalLang fun={modalActive} />;
+  const viewModal = useCallback(() => {
+    if (language.active) {
+      return <ModalLang />;
     } else return <></>;
-  }
+  }, [language.active]);
 
   return (
     <>
@@ -31,7 +32,7 @@ const MainNavigation: React.FC = () => {
         </li>
         <li
           onClick={() => {
-            modalActive();
+            dispatch(switchLanguageCreator());
           }}
           className="lang"
         >

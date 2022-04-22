@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useTypedSelector } from "../useTypedSelector";
 import { useDispatch } from "react-redux";
 import addClass from "classnames";
 import { useTranslation } from "react-i18next";
-import { NewOrientationCategoryCreator } from "../redux/actions/category_actions";
+import { NewOrientationCategoryCreator } from "../redux/actions/categoryActions";
 
 const Orientation: React.FC = () => {
   const { t } = useTranslation();
@@ -14,11 +14,14 @@ const Orientation: React.FC = () => {
 
   const dispatch = useDispatch();
 
-  function ClickOrientation(name: string) {
-    if (name !== title.orientation && !title.loading) {
-      return dispatch(NewOrientationCategoryCreator(name));
-    } else return;
-  }
+  const ClickOrientation = useCallback(
+    (name: string) => {
+      if (name !== title.orientation && !title.loading) {
+        return dispatch(NewOrientationCategoryCreator(name));
+      } else return;
+    },
+    [dispatch, title.loading, title.orientation]
+  );
 
   return (
     <ul className="orientation_list">
@@ -26,7 +29,9 @@ const Orientation: React.FC = () => {
         onClick={() => {
           ClickOrientation("");
         }}
-        className={addClass({ active_orientation_item: title.orientation === "" })}
+        className={addClass({
+          active_orientation_item: title.orientation === "",
+        })}
       >
         {t("orientation.all_orientation")}
       </li>
@@ -34,7 +39,9 @@ const Orientation: React.FC = () => {
         onClick={() => {
           ClickOrientation("landscape");
         }}
-        className={addClass({ active_orientation_item: title.orientation === "landscape" })}
+        className={addClass({
+          active_orientation_item: title.orientation === "landscape",
+        })}
       >
         {" "}
         <i className="rd__svg-icon">
@@ -61,7 +68,9 @@ const Orientation: React.FC = () => {
         onClick={() => {
           ClickOrientation("portrait");
         }}
-        className={addClass({ active_orientation_item: title.orientation === "portrait" })}
+        className={addClass({
+          active_orientation_item: title.orientation === "portrait",
+        })}
       >
         <i className="rd__svg-icon">
           <svg
@@ -90,7 +99,9 @@ const Orientation: React.FC = () => {
         onClick={() => {
           ClickOrientation("square");
         }}
-        className={addClass({ active_orientation_item: title.orientation === "square" })}
+        className={addClass({
+          active_orientation_item: title.orientation === "square",
+        })}
       >
         <i className="rd__svg-icon">
           <svg

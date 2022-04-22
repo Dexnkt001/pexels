@@ -3,12 +3,12 @@ import i18next from "i18next";
 import addClass from "classnames";
 import cookies from "js-cookie";
 import "flag-icon-css/css/flag-icons.min.css";
+import { switchLanguageCreator } from "../redux/actions/languageAction";
+import { useDispatch } from "react-redux";
 
-interface Props {
-  fun: () => void;
-}
+const ModalLang = () => {
+  const dispatch = useDispatch();
 
-const ModalLang = ({ fun }: Props) => {
   const currentLang = cookies.get("i18next") || "en";
   return (
     <ul className="modal_lang">
@@ -16,7 +16,7 @@ const ModalLang = ({ fun }: Props) => {
         className={addClass("en", { active_lang: currentLang === "en" })}
         onClick={() => {
           i18next.changeLanguage("en");
-          fun();
+          dispatch(switchLanguageCreator());
         }}
       >
         <span className="flag-icon flag-icon-gb"></span>
@@ -26,7 +26,7 @@ const ModalLang = ({ fun }: Props) => {
         className={addClass("ru", { active_lang: currentLang === "ru" })}
         onClick={() => {
           i18next.changeLanguage("ru");
-          fun();
+          dispatch(switchLanguageCreator());
         }}
       >
         <span className="flag-icon flag-icon-ru"></span>

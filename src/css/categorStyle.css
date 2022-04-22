@@ -21,9 +21,6 @@
   list-style: none;
 }
 
-/*.function_list li{*/
-/*    border-radius: 20px;*/
-/*}*/
 
 .function_list li div {
   font-size: 14px;
@@ -333,9 +330,6 @@ em {
     width: 70%;
   }
 
-  /*.function_list li{*/
-  /*    width: 200px;*/
-  /*}*/
 
   .functions {
     height: 100px;

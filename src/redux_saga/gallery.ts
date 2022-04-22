@@ -3,9 +3,9 @@ import { PicturesActionTypes } from "../types/pictures";
 import {
   ErrorCreator,
   FetchMorePicturesSuccessAction,
-} from "../redux/actions/gallery_actions";
+} from "../redux/actions/galleryActions";
 import { select } from "typed-redux-saga";
-import { fetchBackground } from "../redux/actions/background_actions";
+import { fetchBackground } from "../redux/actions/backgroundActions";
 import { IPictures } from "../types/categoryTypes";
 
 const api_key: string = process.env.REACT_APP_API_KEY as string;

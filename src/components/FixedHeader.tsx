@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import MainNavigation from "./MainNavigation";
 import { useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -12,12 +12,15 @@ const FixedHeader = () => {
 
   let navigate = useNavigate();
 
-  function submit(e: any) {
-    e.preventDefault();
-    if (e.target[0].value.trim() !== "") {
-      navigate(`../about/${encodeURIComponent(e.target[0].value)}`);
-    }
-  }
+  const submit = useCallback(
+    (e: any) => {
+      e.preventDefault();
+      if (e.target[0].value.trim() !== "") {
+        navigate(`../about/${encodeURIComponent(e.target[0].value)}`);
+      }
+    },
+    [navigate]
+  );
 
   useEffect(() => {
     if (category !== undefined) {

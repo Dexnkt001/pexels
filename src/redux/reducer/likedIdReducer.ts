@@ -16,7 +16,11 @@ export const LikedIdReducer = (
     case likedIdTypes.NEW_LIKED_ID:
       return { likedId: [...state.likedId, action.payload] };
     case likedIdTypes.DELETE_LIKED_ID:
-      return { likedId: action.payload };
+      return {
+        likedId: state.likedId.filter((element) => {
+          return element !== action.payload;
+        }),
+      };
     default:
       return state;
   }

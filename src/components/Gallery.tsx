@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import "../css/Gallery.css";
 import { useTypedSelector } from "../useTypedSelector";
 import Photo from "./Photo";
@@ -16,30 +16,36 @@ const Gallery = ({ req }: request) => {
 
   const gallery = useTypedSelector((state) => state[req]);
 
-  function categoryView(req: string) {
-    if (req === "category") {
-      return ` ${category} `;
-    }
-  }
+  const categoryView = useCallback(
+    (req: string) => {
+      if (req === "category") {
+        return ` ${category} `;
+      }
+    },
+    [category]
+  );
 
-  const column = (start: number) => {
-    let pictures = [];
-    for (let i = start; i < gallery.pictures.length; i += 4) {
-      pictures.push(
-        <Photo
-          key={i}
-          idPhoto={gallery.pictures[i].id}
-          mainPhoto={gallery.pictures[i]["src"].large}
-          namePhotographer={gallery.pictures[i]["photographer"]}
-          alt={gallery.pictures[i].alt}
-          urlPhotographer={gallery.pictures[i].photographer_url}
-        />
-      );
-    }
-    return pictures;
-  };
+  const column = useCallback(
+    (start: number) => {
+      let pictures = [];
+      for (let i = start; i < gallery.pictures.length; i += 4) {
+        pictures.push(
+          <Photo
+            key={i}
+            idPhoto={gallery.pictures[i].id}
+            mainPhoto={gallery.pictures[i]["src"].large}
+            namePhotographer={gallery.pictures[i]["photographer"]}
+            alt={gallery.pictures[i].alt}
+            urlPhotographer={gallery.pictures[i].photographer_url}
+          />
+        );
+      }
+      return pictures;
+    },
+    [gallery.pictures]
+  );
 
-  function galleryCreator() {
+  const galleryCreator = useCallback(() => {
     if (gallery.pictures.length !== 0) {
       return (
         <>
@@ -60,7 +66,7 @@ const Gallery = ({ req }: request) => {
         </h1>
       );
     }
-  }
+  }, [categoryView, column, gallery.pictures.length, req, t]);
 
   return <div className="main_content">{galleryCreator()}</div>;
 };

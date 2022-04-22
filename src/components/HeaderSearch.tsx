@@ -1,5 +1,5 @@
 import React from "react";
-import Serch from "./Serch";
+import Search from "./Search";
 import SearchIdeas from "./SearchIdeas";
 import { useTranslation } from "react-i18next";
 
@@ -11,7 +11,7 @@ const HeaderSearch: React.FC = () => {
       <h1>
         <pre>{t("header.title")}</pre>
       </h1>
-      <Serch />
+      <Search />
       <SearchIdeas />
     </div>
   );

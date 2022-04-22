@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { useTypedSelector } from "../useTypedSelector";
 import addClass from "classnames";
 import { useTranslation } from "react-i18next";
-import { NewSizeCategoryCreator } from "../redux/actions/category_actions";
+import { NewSizeCategoryCreator } from "../redux/actions/categoryActions";
 
 const Size: React.FC = () => {
   const { t } = useTranslation();
@@ -14,11 +14,14 @@ const Size: React.FC = () => {
 
   const dispatch = useDispatch();
 
-  function ClickSize(name: string) {
-    if (name !== title.size && !title.loading) {
-      return dispatch(NewSizeCategoryCreator(name));
-    } else return;
-  }
+  const ClickSize = useCallback(
+    (name: string) => {
+      if (name !== title.size && !title.loading) {
+        return dispatch(NewSizeCategoryCreator(name));
+      } else return;
+    },
+    [dispatch, title.loading, title.size]
+  );
 
   return (
     <ul className="size_list">
