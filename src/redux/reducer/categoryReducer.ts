@@ -11,7 +11,9 @@ const initialState: IPictereCategoryState = {
   loading: false,
   orientation: "",
   size: "",
+  total: 0,
   error: null,
+  nextPage: "startValue",
 };
 
 export const categoryReducer = (
@@ -28,6 +30,8 @@ export const categoryReducer = (
         error: null,
         pictures: state.pictures,
         count_pict: state.count_pict,
+        total: state.total,
+        nextPage: state.nextPage,
       };
     case PicturesCategoryActionTypes.FETCH_CATEGORY_PICTURES_ERROR:
       return {
@@ -38,6 +42,8 @@ export const categoryReducer = (
         error: action.payload,
         pictures: state.pictures,
         count_pict: state.count_pict,
+        total: state.total,
+        nextPage: state.nextPage,
       };
     case PicturesCategoryActionTypes.FETCH_CATEGORY_MORE_PICTURES_SUCCESS:
       return {
@@ -48,6 +54,8 @@ export const categoryReducer = (
         error: null,
         pictures: [...state.pictures, ...action.payload.pictures],
         count_pict: action.payload.count_pict,
+        total: action.payload.total,
+        nextPage: action.payload.nextPage,
       };
     case PicturesCategoryActionTypes.NEW_CATEGORY:
       return {
@@ -58,6 +66,8 @@ export const categoryReducer = (
         error: null,
         pictures: [],
         count_pict: 0,
+        total: 0,
+        nextPage: "startValue",
       };
     case PicturesCategoryActionTypes.CLEAR_PICTURES_CATEGORY:
       return {
@@ -68,6 +78,8 @@ export const categoryReducer = (
         count_pict: 0,
         loading: false,
         error: null,
+        total: 0,
+        nextPage: "startValue",
       };
     case PicturesCategoryActionTypes.NEW_SIZE:
       return {
@@ -78,6 +90,8 @@ export const categoryReducer = (
         count_pict: 0,
         loading: false,
         error: null,
+        total: 0,
+        nextPage: "startValue",
       };
     case PicturesCategoryActionTypes.NEW_ORIENTATION:
       return {
@@ -88,6 +102,8 @@ export const categoryReducer = (
         count_pict: 0,
         loading: false,
         error: null,
+        total: 0,
+        nextPage: "startValue",
       };
     case PicturesCategoryActionTypes.DELETE_ORIENTATION:
       return {
@@ -98,6 +114,8 @@ export const categoryReducer = (
         count_pict: 0,
         loading: false,
         error: null,
+        total: 0,
+        nextPage: "startValue",
       };
     case PicturesCategoryActionTypes.DELETE_SIZE:
       return {
@@ -108,6 +126,8 @@ export const categoryReducer = (
         count_pict: 0,
         loading: false,
         error: null,
+        total: 0,
+        nextPage: "startValue",
       };
     default:
       return state;

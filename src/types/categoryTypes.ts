@@ -21,14 +21,14 @@ export interface IPictereCategoryState {
   loading: boolean;
   orientation: string;
   size: string;
+  total: number;
+  nextPage: string | undefined;
   error: null | string;
 }
 
 export enum PicturesCategoryActionTypes {
   FETCH_CATEGORY_PICTURES = "FETCH_CATEGORY_PICTURES",
-  FETCH_CATEGORY_PICTURES_SUCCESS = "FETCH_CATEGORY_PICTURES_SUCCESS",
   FETCH_CATEGORY_PICTURES_ERROR = "FETCH_CATEGORY_PICTURES_ERROR",
-  ASYNC_CATEGORY_PICTURES = "ASYNC_CATEGORY_PICTURES",
   FETCH_CATEGORY_MORE_PICTURES_SUCCESS = "FETCH_CATEGORY_MORE_PICTURES_SUCCESS",
   ASYNC_CATEGORY_MORE_PICTURES = "ASYNC_CATEGORY_MORE_PICTURES",
   NEW_CATEGORY = "NEW_CATEGORY_CATEGORY",
@@ -62,6 +62,8 @@ interface IFetchMorePicturesCategorySuccess {
   payload: {
     pictures: IPictures[];
     count_pict: number;
+    total: number;
+    nextPage: string | undefined;
   };
 }
 

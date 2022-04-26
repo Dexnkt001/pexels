@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import "../css/categorStyle.css";
 import Gallery from "../components/Gallery";
 import { useTypedSelector } from "../useTypedSelector";
@@ -21,39 +21,38 @@ const Category: React.FC = () => {
 
   const dispatch = useDispatch();
 
+  const morePhoto = useCallback(
+    (entries) => {
+      if (entries[0].isIntersecting && !state.loading && state.nextPage) {
+        dispatch(fetchPicturesCategoryCreator());
+        dispatch(AsyncMorePicturesCategoryCreator());
+      }
+    },
+    [state.loading, state.nextPage, dispatch]
+  );
+
   useEffect(() => {
     const current = markPhoto.current as unknown as HTMLElement;
-    let observer = new IntersectionObserver(
-      (entries, observer) => {
-        if (entries[0].isIntersecting) {
-          dispatch(fetchPicturesCategoryCreator());
-          dispatch(AsyncMorePicturesCategoryCreator());
-        }
-      },
-      {
-        threshold: 0.8,
-      }
-    );
+    let observer = new IntersectionObserver(morePhoto, {
+      threshold: 0.8,
+    });
     observer.observe(markPhoto.current as unknown as Element);
-    dispatch(NewCategoryCreator(category as string));
     return () => {
       observer.unobserve(current);
     };
-  }, [category, state.orientation, state.size, dispatch]);
+  }, [morePhoto, category, state.orientation, state.size]);
 
-  function loading() {
-    if (state.loading) {
-      return <Loading />;
-    } else return;
-  }
+  useEffect(() => {
+    dispatch(NewCategoryCreator(category as string));
+  }, [category, state.orientation, state.size, dispatch]);
 
   return (
     <>
       <FixedHeader />
       <CategoryFunctions />
       <Gallery req={"category"} />
+      <Loading />
       <div ref={markPhoto} className="more_photo"></div>
-      {loading()}
     </>
   );
 };

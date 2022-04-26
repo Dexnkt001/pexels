@@ -1,5 +1,5 @@
 import { put, takeEvery, call } from "redux-saga/effects";
-import { PicturesCategoryActionTypes } from "../types/categoryTypes";
+import { IPictures, PicturesCategoryActionTypes } from "../types/categoryTypes";
 import { select } from "typed-redux-saga";
 import {
   ErrorCreator,
@@ -41,9 +41,9 @@ const getMoreCategoryPicturesAction = (
 interface IPicts {
   page: number;
   per_page: number;
-  photos: any[];
+  photos: IPictures[];
   total_results: number;
-  next_page: string;
+  next_page: string | undefined;
 }
 
 interface ICategoryData {
@@ -68,6 +68,8 @@ function* getMoreCategoryPicturesWorker() {
       FetchMorePicturesCategorySuccessAction({
         count_pict: categoryData.count_pict + data.photos.length,
         pictures: data.photos,
+        total: data.total_results,
+        nextPage: data.next_page,
       })
     );
   } catch (e) {

@@ -6,6 +6,8 @@ import {
 export interface payloadCategoryFetchMore {
   count_pict: number;
   pictures: IPictures[];
+  total: number;
+  nextPage: string | undefined;
 }
 
 export const FetchMorePicturesCategorySuccessAction = (

@@ -11,7 +11,7 @@ const sagaMiddleware = createSagaMiddleware();
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ["gallery", "background", "category"],
+  blacklist: ["gallery", "background", "category", "language"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

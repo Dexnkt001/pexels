@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import { useTypedSelector } from "../useTypedSelector";
 import Loading from "../components/Loading";
 import Header from "../components/Header";
@@ -21,27 +21,32 @@ const Main: React.FC = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    let observer = new IntersectionObserver(
-      (entries, observer) => {
-        if (entries[0].isIntersecting) {
-          dispatch(fetchPicturesCreator());
-          dispatch(AsyncMorePicturesCreator());
-        }
-      },
-      {
-        threshold: 0.8,
+  const morePhoto = useCallback(
+    (entries) => {
+      if (entries[0].isIntersecting && !state.gallery.loading) {
+        dispatch(fetchPicturesCreator());
+        dispatch(AsyncMorePicturesCreator());
       }
-    );
+    },
+    [state.gallery.loading, dispatch]
+  );
+
+  useEffect(() => {
+    const current = markPhoto.current as unknown as HTMLElement;
+    let observer = new IntersectionObserver(morePhoto, {
+      threshold: 0.8,
+    });
     observer.observe(markPhoto.current as unknown as Element);
+    return () => {
+      observer.unobserve(current);
+    };
+    dispatch(ClearCategoryCreator());
+  }, [morePhoto, dispatch]);
+
+  useEffect(() => {
     dispatch(ClearCategoryCreator());
   }, [dispatch]);
 
-  function loading() {
-    if (state.gallery.loading) {
-      return <Loading />;
-    } else return;
-  }
   return (
     <>
       <Header />
@@ -51,8 +56,8 @@ const Main: React.FC = () => {
         <h4>{t("gallery.trending")}</h4>
       </div>
       <Gallery req={"gallery"} />
+      <Loading />
       <div ref={markPhoto} className="more_photo"></div>
-      {loading()}
     </>
   );
 };

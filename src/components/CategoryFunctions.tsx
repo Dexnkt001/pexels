@@ -95,6 +95,7 @@ const CategoryFunctions: React.FC = () => {
               </svg>
             </i>
             <span>{t("category_functions.photos")}</span>
+            <small> · {state.total}</small>
           </li>
           <li>
             <i className="rd__svg-icon">
@@ -108,6 +109,7 @@ const CategoryFunctions: React.FC = () => {
               </svg>
             </i>
             <span>{t("category_functions.videos")}</span>
+            <small> · 222</small>
           </li>
           <li>
             <i className="rd__svg-icon">
@@ -121,6 +123,7 @@ const CategoryFunctions: React.FC = () => {
               </svg>
             </i>
             <span>{t("category_functions.users")}</span>
+            <small> · 222</small>
           </li>
         </ul>
         <ul className="function_list">
